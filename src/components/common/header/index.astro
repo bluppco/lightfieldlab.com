@@ -4,10 +4,20 @@
 import Container from "@/layouts/container/index.astro"
 
 ---
-<header class="bg-black h-12">
+<header class="bg-black h-20">
     <Container>
-        <section class="flex items-center h-full">
-            <p class="text-white">Header</p>
+        <section class="flex h-full sticky items-center justify-between cursor-pointer sm:invisible md:visible">
+            <div class="h-18 w-40">
+                <img src="./public/logo/Lightfield-logo.png" alt="">
+            </div>
+            <ul class="flex space-x-6 text-base">
+                <li class="text-cyan-500"><a href="">Home</a></li>
+                <li class="text-white hover:text-cyan-500"><a href="">The Tech</a></li>
+                <li class="text-white hover:text-cyan-500"><a href="">Press</a></li>
+                <li class="text-white hover:text-cyan-500"><a href="">Contact</a></li>
+                <li class="text-white hover:text-cyan-500"><a href="">Jobs</a></li>
+                <li class="text-white hover:text-cyan-500"><a href="">HoloWire</a></li>
+            </ul>
         </section>
     </Container>
 </header>

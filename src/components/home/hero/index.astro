@@ -1,4 +1,31 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import HeadingOneLargeWhite from "@/atoms/headings/one/large/large-white/index.astro"
+import ParagraphWhite from "@/atoms/paragraphs/white/three-xl/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    title,
+    subtitle
+
+} = Astro.props
+
 ---
-<section>Hero</section>
+<section>
+    <div class="relative">
+        <div class="h-full w-full">
+            <img src="./public/images/hero-section.jpg" alt="" class="z-9 bg-cover">
+        </div>
+        <div class="absolute inset-0 space-y-10 top-28 left-10">
+            <HeadingOneLargeWhite>{ title }</HeadingOneLargeWhite>
+            <div class="space-y-0">
+                <div class="pr-48">
+                    <ParagraphWhite>{ subtitle }</ParagraphWhite>
+                </div>
+                    <img src="./public/images/Inventions-hero-section.png" alt="TimeBestInventions" class="h-80 w-80 top-0 left-0 -ml-20 -mb-6">
+            </div>
+        </div>
+    </div>
+</section>
