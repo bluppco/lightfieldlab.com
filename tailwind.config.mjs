@@ -51,6 +51,7 @@ module.exports = {
 			},
 			fontFamily: {
 
+				"main-heading-font": ["Merriweather", "serif"],
 
 			}
 
