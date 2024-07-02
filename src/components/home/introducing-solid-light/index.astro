@@ -2,7 +2,7 @@
 
 // IMPORT ASTRO ATOMS
 import TransparentButton from "@/atoms/buttons/transparent/index.astro"
-import SubTitle from "@/atoms/paragraphs/two-xl/index.astro"
+import SubTitle from "@/atoms/paragraphs/two-xl/center/index.astro"
 import Title from "@/atoms/headings/one/white/center/index.astro"
 
 // HARDCODED DATA
@@ -25,10 +25,10 @@ const data = {
     <div class="h-full flex items-center justify-center">
         <div class="flex flex-col gap-20 lg:gap-40">
             <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 lg:gap-10">
-                <Title>
-                    { data.title }
-                    <span class="text-white text-xs">TM</span>
-                </Title>
+                <div class="relative">
+                    <Title>{ data.title }</Title>
+                    <span class="absolute top-0 -right-3 text-xs text-white transform -translate-y-1/2">TM</span>
+                </div>
                 <SubTitle>{ data.sub_title }</SubTitle>
             </div>
             <div class="flex items-center justify-center">
