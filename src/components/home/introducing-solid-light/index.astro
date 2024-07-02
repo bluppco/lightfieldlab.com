@@ -1,4 +1,39 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import TransparentButton from "@/atoms/buttons/transparent/index.astro"
+import SubTitle from "@/atoms/paragraphs/two-xl/index.astro"
+import Title from "@/atoms/headings/one/white/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_text: "See it Now",
+    sub_title: "The Next Generation of Display Technology",
+    title: "Introducing SolidLight",
+
+}
+
 ---
-<section>Introducing SolidLight</section>
+
+<section class="flex items-center justify-center relative lg:h-[180vh] h-screen">
+    <div class="absolute inset-0 overflow-hidden z-[-1]">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+            <source src="/videos/solid-light-background.webm" type="video/webm">
+        </video>
+    </div>
+    <div class="h-full flex items-center justify-center">
+        <div class="flex flex-col gap-20 lg:gap-40">
+            <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 lg:gap-10">
+                <div class="flex">
+                    <Title>{ data.title }</Title>
+                    <span class="text-white text-xs">TM</span>
+                </div>
+                <SubTitle>{ data.sub_title }</SubTitle>
+            </div>
+            <div class="flex items-center justify-center">
+                <TransparentButton>{ data.button_text }</TransparentButton>
+            </div>
+        </div>
+    </div>
+</section>
