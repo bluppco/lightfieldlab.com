@@ -51,6 +51,8 @@ module.exports = {
 			},
 			fontFamily: {
 
+				"merriweather": ["Merriweather", "serif"],
+				"montserrat": ["Montserrat", "sans-serif"],
 
 			}
 
