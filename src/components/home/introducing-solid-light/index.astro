@@ -1,8 +1,8 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import SubTitle from "@/atoms/paragraphs/white/three-xl/center/index.astro"
-import Title from "@/atoms/headings/one/white/center/index.astro"
+import ParagraphThreeXLWhiteCenter from "@/atoms/paragraphs/white/three-xl/center/index.astro"
+import HeadingOneWhiteCenter from "@/atoms/headings/one/white/center/index.astro"
 import TransparentButton from "@/atoms/buttons/transparent/index.astro"
 
 // HARDCODED DATA
@@ -26,10 +26,10 @@ const data = {
         <div class="flex flex-col gap-20 lg:gap-40">
             <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 lg:gap-10">
                 <div class="relative">
-                    <Title>{ data.title }</Title>
+                    <HeadingOneWhiteCenter>{ data.title }</HeadingOneWhiteCenter>
                     <span class="absolute top-0 -right-3 text-xs text-white transform -translate-y-1/2">TM</span>
                 </div>
-                <SubTitle>{ data.sub_title }</SubTitle>
+                <ParagraphThreeXLWhiteCenter>{ data.sub_title }</ParagraphThreeXLWhiteCenter>
             </div>
             <div class="flex items-center justify-center">
                 <TransparentButton>{ data.button_text }</TransparentButton>
