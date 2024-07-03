@@ -97,7 +97,7 @@ const data = {
 
     window.addEventListener('scroll', () => {
         const container = document.getElementById('animation-container');
-        const image = document.getElementById('the-tech-image');
+        const image = document.getElementById('the-tech-image') as HTMLImageElement;
         const containerTop = container.offsetTop;
         const containerHeight = container.offsetHeight;
         const scrollTop = window.scrollY;
