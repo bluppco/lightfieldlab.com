@@ -4,6 +4,7 @@
 import HeadingOneLargeWhite from "@/atoms/headings/one/large/large-white/index.astro"
 import ParagraphWhite from "@/atoms/paragraphs/white/three-xl/index.astro"
 
+
 // GET ASTRO PROPS
 const {
 
@@ -13,19 +14,17 @@ const {
 } = Astro.props
 
 ---
-<section>
+<section class="h-auto w-full">
     <div class="relative">
         <div class="h-full w-full">
             <img src="./public/images/hero-section.jpg" alt="" class="z-9 bg-cover">
         </div>
-        <div class="absolute inset-0 space-y-10 top-28 left-10">
+        <div class="absolute inset-0 space-y-6 top-28 left-10">
             <HeadingOneLargeWhite>{ title }</HeadingOneLargeWhite>
-            <div class="space-y-0">
-                <div class="pr-48">
-                    <ParagraphWhite>{ subtitle }</ParagraphWhite>
-                </div>
-                    <!-- <img src="./public/images/Inventions-hero-section.png" alt="TimeBestInventions" class="h-80 w-80 top-0 left-0 -ml-20 -mb-6"> -->
+            <div class="pr-80 md:pr-48">
+                <ParagraphWhite>{ subtitle }</ParagraphWhite>
             </div>
+            <img src="./public/images/Inventions-hero-section.png" alt="TimeBestInventions" class="h-44 w-44 md:h-80 md:w-80 top-0 left-0 -ml-12 md:-ml-20 -mb-6 pb-40">
         </div>
     </div>
 </section>
