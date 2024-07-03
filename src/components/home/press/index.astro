@@ -1,4 +1,28 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import HeadingOne from "@/atoms/headings/one/index.astro"
+import HeadingFour from "@/atoms/headings/four/index.astro"
+import InternalContainPicture from "@/atoms/picture/internal/contain/index.astro"
+
 ---
-<section>Press</section>
+<section class=" bg-[#141A23] p-16">
+    <div class=" flex justify-between items-baseline mb-10" >
+        <div class=" text-white">
+            <HeadingOne>Press</HeadingOne>
+        </div>
+        <div class="flex gap-4">
+            <!-- No hover class on heading four, --- hover:cyan-500 -->
+            <div class=" text-white text-2xl" >
+                <HeadingFour>Light Field Lab - Latest Press Release</HeadingFour>
+            </div>
+            <div class=" w-7 aspect-square" >
+                <InternalContainPicture source="/icons/button-arrow.svg" alternative-text="Arrow" />
+            </div>
+        </div>
+    </div>
+    <div class=" h-4 w-full" >
+         <InternalContainPicture  source = "/images/press-line.png" alternative-text="Line"/>
+    </div>
+   
+</section>
