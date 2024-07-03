@@ -1,4 +1,38 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import HeadingOneLarge from "@/atoms/headings/one/large/index.astro"
+import HeadingFour from "@/atoms/headings/three/index.astro"
+import Paragraph2xl from "@/atoms/paragraphs/two-xl/index.astro"
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    title,
+    heading,
+    description
+
+} = Astro.props
+
 ---
-<section>Welcome</section>
+<Container>
+    <section class="pt-20">
+        <div class="pb-4">
+            <HeadingFour>{ title }</HeadingFour>
+        </div>
+        <div class="pb-16">
+            <img src="./public/images/welcome-section-underline.png" alt="Underline" class="h-1 w-full">
+        </div>
+        <div class="grid grid-cols-6">
+            <div class="col-span-4">
+                <HeadingOneLarge>{ heading }</HeadingOneLarge>
+            </div>
+            <div class="col-span-2">
+                <Paragraph2xl>{ description }</Paragraph2xl>
+            </div>
+        </div>
+    </section>
+</Container>
