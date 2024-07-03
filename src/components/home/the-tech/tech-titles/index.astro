@@ -1,0 +1,23 @@
+---
+
+// IMPORT ASTRO ATOMS
+
+
+// GET ASTRO PROPS
+const {
+
+    description,
+    number,
+
+} = Astro.props
+
+---
+
+<div class="flex gap-12">
+    <div class="cursor-default min-w-8">
+        <p class="text-4xl font-merriweather text-white hover:text-cyan-400">{ number }</p>
+    </div>
+    <div class="border-b border-white pb-4 w-full">
+        <p class="text-lg font-light text-white">{ description }</p>
+    </div>
+</div>
