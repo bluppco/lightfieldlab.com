@@ -9,10 +9,19 @@ import Container from "@/layouts/container/index.astro"
         <section class="flex items-center justify-between cursor-pointer">
             <div class="flex">
                 <div class="h-18 w-40 py-4">
-                    <img src="/logo/Lightfield-logo.png" alt="" class="h-full w-full">
+                    <img  
+                        alt="" 
+                        class="h-full w-full"
+                        src="/logo/Lightfield-logo.png"
+                    >
                 </div>
                 <div>
-                    <img src="/logo/Lightfield-logo.png" alt="" class="h-18 w-40 py-5 md:hidden" onclick="dropdown()">
+                    <img  
+                        alt="" 
+                        class="h-18 w-40 py-5 md:hidden" 
+                        onclick="dropdown()"
+                        src="/logo/Lightfield-logo.png"
+                    >
                     <ul class="md:flex md:bg-black md:space-x-6 md:mr-20 md:py-6 md:space-y-0 md:px-0 py-5 pl-8 pr-20 text-base space-y-4 bg-white right-0 fixed z-50" id="submenu">
                         <li class="text-cyan-500"><a href="">Home</a></li>
                         <li class="md:text-white hover:text-cyan-500"><a href="">The Tech</a></li>
@@ -23,30 +32,7 @@ import Container from "@/layouts/container/index.astro"
                     </ul>
                 </div>    
             </div>   
-        </section>
-
-
-
-
-        <!-- <section class="flex items-center justify-between cursor-pointer sm:block md:hidden">
-            <div class="flex justify-between top-10">
-                <div>
-                    <img src="./public/logo/Lightfield-logo.png" alt="" class="h-18 w-40 py-4">
-                </div>
-                <div>
-                    <img src="./public/logo/Lightfield-logo.png" alt="" class="h-18 w-40 py-5" onclick="dropdown()">
-                    <ul class="py-4 space-y-4 px-6 text-base bg-white right-0 fixed z-50" id="submenu">
-                        <li class="text-cyan-500"><a href="">Home</a></li>
-                        <li class="hover:text-cyan-500"><a href="">The Tech</a></li>
-                        <li class="hover:text-cyan-500"><a href="">Press</a></li>
-                        <li class="hover:text-cyan-500"><a href="">Contact</a></li>
-                        <li class="hover:text-cyan-500"><a href="">Jobs</a></li>
-                        <li class="hover:text-cyan-500"><a href="">HoloWire</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section> -->
-        
+        </section>       
     </Container>
 </header>
 
