@@ -3,12 +3,12 @@
 import Container from "@/layouts/container/index.astro"
 
 // IMPORT ASTRO COMPONENTS
-import TechTitle from "@/components/home/the-tech/tech-titles/index.astro"
+import TechImageTitle from "@/components/home/the-tech/tech-titles/index.astro"
 
 // IMPORT ASTRO ATOMS
 import LightLine from "@/atoms/light-line/index.astro"
-import SectionDescription from "@/atoms/paragraphs/white/three-xl/index.astro"
-import SectionTitle from "@/atoms/headings/one/white/index.astro"
+import ParagraphThreexlWhite from "@/atoms/paragraphs/white/three-xl/index.astro"
+import HeadingOneWhite from "@/atoms/headings/one/white/index.astro"
 
 // HARDCODED DATA
 const data = {
@@ -22,15 +22,15 @@ const data = {
     <Container>
         <div class="flex flex-col gap-10 my-10">
             <div>
-                <SectionTitle>{ data.title }</SectionTitle>
+                <HeadingOneWhite>{ data.title }</HeadingOneWhite>
             </div>
             <div>
                 <LightLine/>
             </div>
             <div class="grid grid-cols-3">
                 <div class="flex flex-col gap-8 col-span-3 md:col-span-2">
-                    <SectionDescription>{ data.description_first }</SectionDescription>
-                    <SectionDescription>{ data.description_second }</SectionDescription>
+                    <ParagraphThreexlWhite>{ data.description_first }</ParagraphThreexlWhite>
+                    <ParagraphThreexlWhite>{ data.description_second }</ParagraphThreexlWhite>
                 </div>
             </div>
             <div id="animation-container" class="md:px-16">
@@ -43,15 +43,15 @@ const data = {
                 </div>
             </div>
             <div class="md:hidden flex flex-col gap-6">
-                <TechTitle
+                <TechImageTitle
                     description="High Performance Proprietary FPGA, Electronics, Wall & Display Controllers"
                     number="1"
                 />
-                <TechTitle
+                <TechImageTitle
                     description="Photonics Array & Nanoparticle Polymer Fused Surface Energy Relay"
                     number="2"
                 />
-                <TechTitle
+                <TechImageTitle
                     description="Complex Phaseguide Modulation Surface"
                     number="3"
                 />
