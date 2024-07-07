@@ -1,0 +1,15 @@
+---
+
+// GET ASTRO PROPS
+const { source } = Astro.props
+
+---
+<video
+    autoplay
+    class="w-full h-full object-cover"
+    loop
+    muted
+    playsinline
+>
+    <source src={ source } type="video/webm"/>
+</video>

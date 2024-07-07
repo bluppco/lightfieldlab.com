@@ -1,9 +1,11 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import ParagraphThreeXLWhiteCenter from "@/atoms/paragraphs/three-xl/white/center/index.astro"
 import HeadingOneWhiteCenter from "@/atoms/headings/one/white/center/index.astro"
+import ParagraphThreeXLWhiteCenter from "@/atoms/paragraphs/three-xl/white/center/index.astro"
 import TransparentButton from "@/atoms/buttons/transparent/index.astro"
+import Video from "@/atoms/video/index.astro"
+import Link from "@/atoms/links/index.astro"
 
 // HARDCODED DATA
 const data = {
@@ -16,13 +18,11 @@ const data = {
 
 ---
 
-<section class="flex items-center justify-center relative lg:h-[180vh] h-screen px-4">
+<section class="flex items-center justify-center relative h-screen lg:h-[180vh] px-4">
     <div class="absolute inset-0 overflow-hidden z-[-1]">
-        <video autoplay loop muted playsinline class="w-full h-full object-cover">
-            <source src="/videos/solid-light-background.webm" type="video/webm">
-        </video>
+        <Video source="/videos/solid-light-background.webm"/>
     </div>
-    <div class="h-full flex items-center justify-center">
+    <div class="flex items-center justify-center h-full">
         <div class="flex flex-col gap-20 lg:gap-40">
             <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 lg:gap-10">
                 <div class="relative">
@@ -32,7 +32,9 @@ const data = {
                 <ParagraphThreeXLWhiteCenter>{ data.sub_title }</ParagraphThreeXLWhiteCenter>
             </div>
             <div class="flex items-center justify-center">
-                <TransparentButton>{ data.button_text }</TransparentButton>
+                <Link href="/see-it-now" aria_label="">
+                    <TransparentButton>{ data.button_text }</TransparentButton>
+                </Link>
             </div>
         </div>
     </div>
