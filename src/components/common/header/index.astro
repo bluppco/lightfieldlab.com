@@ -1,12 +1,12 @@
 ---
 
-// IMPORTS ASTRO LAYOUTS
+// IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
 ---
 <header class="bg-black h-20 fixed z-50 w-full items-center">
     <Container>
-        <section class="flex items-center cursor-pointer">
+        <nav class="flex items-center cursor-pointer">
             <div class="flex gap-48">
                 <div class="h-18 w-40 py-4">
                     <img
@@ -22,7 +22,7 @@ import Container from "@/layouts/container/index.astro"
                         onclick="dropdown()"
                         src="/icons/hamburger-icon.svg"
                     >
-                    <ul class="md:flex md:bg-black md:space-x-6 md:mr-20 md:py-6 md:mt-0 md:space-y-0 md:px-0 py-5 pl-8 pr-20 mt-10 text-base space-y-4 bg-white right-0 fixed z-50" id="submenu">
+                    <ul class="md:flex md:bg-black md:space-x-6 md:mr-20 md:py-6 md:mt-0 md:space-y-0 md:px-0 py-5 pl-8 pr-20 mt-10 space-y-4 bg-white right-0 fixed z-50" id="submenu">
                         <li class="text-cyan-500"><a href="">Home</a></li>
                         <li class="md:text-white hover:text-cyan-500"><a href="">The Tech</a></li>
                         <li class="md:text-white hover:text-cyan-500"><a href="">Press</a></li>
@@ -32,7 +32,7 @@ import Container from "@/layouts/container/index.astro"
                     </ul>
                 </div>
             </div>
-        </section>
+        </nav>
     </Container>
 </header>
 
