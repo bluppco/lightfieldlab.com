@@ -5,6 +5,7 @@ import HeadingOneWhiteCenter from "@/atoms/headings/one/white/center/index.astro
 import ParagraphThreeXLWhiteCenter from "@/atoms/paragraphs/three-xl/white/center/index.astro"
 import TransparentButton from "@/atoms/buttons/transparent/index.astro"
 import Video from "@/atoms/video/index.astro"
+import Link from "@/atoms/links/index.astro"
 
 // HARDCODED DATA
 const data = {
@@ -31,7 +32,9 @@ const data = {
                 <ParagraphThreeXLWhiteCenter>{ data.sub_title }</ParagraphThreeXLWhiteCenter>
             </div>
             <div class="flex items-center justify-center">
-                <TransparentButton>{ data.button_text }</TransparentButton>
+                <Link href="/see-it-now" aria_label="">
+                    <TransparentButton>{ data.button_text }</TransparentButton>
+                </Link>
             </div>
         </div>
     </div>
