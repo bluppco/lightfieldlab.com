@@ -122,8 +122,9 @@ const titles = [
     ];
 
     window.addEventListener('scroll', () => {
-        const container = document.getElementById('animation-container')
-        const image = document.getElementById('the-tech-image') as HTMLImageElement
+
+        const container = document.getElementById( 'animation-container' )
+        const image = document.getElementById( 'the-tech-image' ) as HTMLImageElement
         const containerTop = container.offsetTop
         const containerHeight = container.offsetHeight
         const scrollTop = window.scrollY
@@ -131,17 +132,21 @@ const titles = [
         const startScroll = containerTop - windowHeight
         const endScroll = containerTop + containerHeight - 700
 
-        if (scrollTop >= startScroll && scrollTop <= endScroll) {
+        if ( scrollTop >= startScroll && scrollTop <= endScroll ) {
+
             const scrollRange = endScroll - startScroll
             const totalImages = images.length
             let scrollPosition = scrollTop - startScroll
-            if (scrollPosition < 0) scrollPosition = 0
-            const imageIndex = Math.floor((scrollPosition / scrollRange) * (totalImages - 1))
+            if ( scrollPosition < 0 ) scrollPosition = 0
+            const imageIndex = Math.floor( ( scrollPosition / scrollRange ) * ( totalImages - 1 ) )
             // UPDATE THE SCR OF IMAGE
-            image.src = images[imageIndex]
-        } else if (scrollTop > endScroll) {
+            image.src = images[ imageIndex ]
+
+        } else if ( scrollTop > endScroll ) {
+
             // UPDATE THE SCR OF IMAGE TO LAST IMAGE
-            image.src = images[images.length - 1]
+            image.src = images[ images.length - 1 ]
+
         }
-    });
+    })
 </script>
