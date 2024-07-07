@@ -1,7 +1,7 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import HeadingSix from "@/atoms/solidlight-systems/headings/six/index.astro"
+import HeadingSixTwoXl from "@/atoms/headings/six/two-xl/index.astro"
 
 // GET ASTRO PROPS
 const {
@@ -15,7 +15,9 @@ const {
 
 <div class="flex flex-col gap-4 p-6">
     <div class="flex flex-col sm:flex-row justify-between gap-3 pt-4 border-t border-black">
-        <HeadingSix>{ title }</HeadingSix>
-        <p class="sm:w-1/2 font-montserrat">{ description }</p>
+        <HeadingSixTwoXl>{ title }</HeadingSixTwoXl>
+        <div class="sm:w-1/2">
+            <p class="font-montserrat">{ description }</p>
+        </div>
     </div>
 </div>
