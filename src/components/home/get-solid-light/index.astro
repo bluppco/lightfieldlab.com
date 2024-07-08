@@ -1,4 +1,28 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import HeadingOne from "@/atoms/headings/one/index.astro"
+import PrimaryButton from "@/atoms/buttons/primary/index.astro"
+import TextSmall from "@/atoms/get-solid-light/paragraph/small/index.astro"
+
 ---
-<section>Get SolidLight</section>
+<section class="flex justify-center items-center my-4">
+    <div class=" flex flex-col gap-10" >
+        <div class="relative" >
+            <HeadingOne>
+                Get SolidLight
+            </HeadingOne>
+            <!-- here the fontweight and styling of this paragraph element is not according to the website -->
+            <div class="absolute -right-6 top-0" >
+                <TextSmall>
+                    TM
+                </TextSmall>
+            </div>
+        </div>
+        <div class=" w-90 flex justify-center" >
+            <PrimaryButton>
+                Apply Now
+            </PrimaryButton>
+        </div>
+    </div>
+</section>

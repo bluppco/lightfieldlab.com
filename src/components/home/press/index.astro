@@ -1,4 +1,65 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import HeadingOne from "@/atoms/headings/one/index.astro"
+import ImageSize from "@/atoms/press/image-size/index.astro"
+import InternalContainPicture from "@/atoms/picture/internal/contain/index.astro"
+import WhiteText from "@/atoms/press/paragraph/white/index.astro"
+import BlueText from "@/atoms/press/paragraph/blue/index.astro"
+
+// IMPORT ASTRO COLLECTION
+import { getCollection } from "astro:content"
+
+let press_data = await getCollection("press-content")
+press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
+
+/* console.log(press_data); */
+
 ---
-<section>Press</section>
+<section class=" bg-[#141A23] p-16">
+    <div class=" flex flex-col md:flex-row justify-between items-baseline mb-10 gap-4">
+        <div class=" text-white">
+            <HeadingOne>Press</HeadingOne>
+        </div>
+        <div class="flex gap-2 md:gap-4">
+            <!-- No hover class on heading four, --- hover:cyan-500 -->
+            <WhiteText>
+                Light Field Lab - Latest Press Release
+            </WhiteText>
+            <div class=" w-7 aspect-square">
+                <InternalContainPicture source="/icons/button-arrow.svg" alternative-text="Arrow" />
+            </div>
+        </div>
+    </div>
+    <div class=" h-4 w-full my-8">
+         <InternalContainPicture  source = "/images/press-images/press-line.png" alternative-text="Line"/>
+    </div>
+    
+    <div class="grid md:grid-cols-3 grid-cols-2 md:grid-rows-2 grid-rows-3 gap-32 mt-32">
+              
+        {
+
+            press_data.map( ( item, index ) => (
+
+                <div class="col-span-1 row-span-1">
+
+                    <div class=" flex flex-col gap-6 items-start justify-center w-96">
+
+                        <ImageSize source={ item.data.image }  alternative_text={ item.data.title }/>
+                        <WhiteText href="/" aria-label={ item.data.description }>
+                            { item.data.description }
+                        </WhiteText>
+
+                    </div>
+
+                </div>
+
+            ))
+
+        }
+
+    </div>
+    <div class=" mt-20 pl-[45%]" >
+        <BlueText>ADDITIONAL PRESS ></BlueText>
+    </div>
+</section>

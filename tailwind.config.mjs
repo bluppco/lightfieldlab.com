@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+
   darkMode: ["class"],
   content: [
     "./pages/**/*.{js,jsx}",
@@ -45,6 +46,8 @@ module.exports = {
         color: {
           primary: "#70cffe",
           secondary: "#3b4ccf",
+          "footer-bg": "#E3E3E2",
+				  "footer-grey-text": "#66678B",
         },
       },
       fontFamily: {
@@ -54,4 +57,5 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+
 };
