@@ -1,11 +1,11 @@
 ---
 
 // IMPORT ASTRO ATOMS
+import BlueText from "@/atoms/press/paragraph/blue/index.astro"
 import HeadingOne from "@/atoms/headings/one/index.astro"
 import ImageSize from "@/atoms/press/image-size/index.astro"
 import InternalContainPicture from "@/atoms/picture/internal/contain/index.astro"
 import WhiteText from "@/atoms/press/paragraph/white/index.astro"
-import BlueText from "@/atoms/press/paragraph/blue/index.astro"
 
 // IMPORT ASTRO COLLECTION
 import { getCollection } from "astro:content"
@@ -16,42 +16,49 @@ press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
 /* console.log(press_data); */
 
 ---
-<section class=" bg-[#141A23] p-16">
-    <div class=" flex flex-col md:flex-row justify-between items-baseline mb-10 gap-4">
-        <div class=" text-white">
+
+<!-- DEFINE THIS COLOR #141A23 in tailwind config file and then use it -->
+<section class="bg-[#141A23] p-16">
+    <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-10">
+        <!-- TEXT PROPERTY NOT TO BE USED IN DIV, INSTEAD CREATE A NEW H1 ATOM WITH TEXT WHITE -->
+        <div class="text-white">
             <HeadingOne>Press</HeadingOne>
         </div>
         <div class="flex gap-2 md:gap-4">
             <!-- No hover class on heading four, --- hover:cyan-500 -->
-            <WhiteText>
-                Light Field Lab - Latest Press Release
-            </WhiteText>
-            <div class=" w-7 aspect-square">
+            <!-- THIS SHOULD BE CALLED ParagraphWhite -->
+            <!-- You are also using h4 in paragraphs which is wrong. -->
+            <!-- You are calling it text but it also have link, link can be used here instead of atom -->
+            <WhiteText>Light Field Lab - Latest Press Release</WhiteText>
+            <!-- REPLACE THIS WITH SIZE-7 -->
+            <div class="w-7 aspect-square">
+                <!-- FORMAT THE PICTURE TAG CORRECTLY IN DIFFERENT LINES -->
+                 <!-- IT WOULD BE CALLED PictureInternalContain -->
                 <InternalContainPicture source="/icons/button-arrow.svg" alternative-text="Arrow" />
             </div>
         </div>
     </div>
-    <div class=" h-4 w-full my-8">
-         <InternalContainPicture  source = "/images/press-images/press-line.png" alternative-text="Line"/>
+    <div class="h-4 w-full my-8">
+        <!-- FORMAT THE PICTURE TAG CORRECTLY -->
+         <InternalContainPicture source ="/images/press-images/press-line.png" alternative-text="Line"/>
     </div>
-    
+    <!-- CLASSES SHOULD BE ARRANGED CORRECTLY -->
+    <!-- grid-cols-2 md:grid-cols-3 instead of md:grid-cols-3 grid-cols-2 -->
     <div class="grid md:grid-cols-3 grid-cols-2 md:grid-rows-2 grid-rows-3 gap-32 mt-32">
-              
+
         {
 
             press_data.map( ( item, index ) => (
 
                 <div class="col-span-1 row-span-1">
-
-                    <div class=" flex flex-col gap-6 items-start justify-center w-96">
-
+                    <div class=" flex flex-col gap-6 justify-center w-96">
+                        {/* FORMAT THE PICTURE TAG CORRECTLY */}
                         <ImageSize source={ item.data.image }  alternative_text={ item.data.title }/>
+                        {/* REFER TO LINE 29 COMMENT */}
                         <WhiteText href="/" aria-label={ item.data.description }>
                             { item.data.description }
                         </WhiteText>
-
                     </div>
-
                 </div>
 
             ))
@@ -59,7 +66,9 @@ press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
         }
 
     </div>
+    <!-- REMOVE THE EXTRA SPACE BEFORE mt-20 -->
     <div class=" mt-20 pl-[45%]" >
+        <!-- NAME THIS ATOM ParagraphBlue -->
         <BlueText>ADDITIONAL PRESS ></BlueText>
     </div>
 </section>

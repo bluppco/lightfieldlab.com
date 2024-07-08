@@ -3,33 +3,41 @@
 // IMPORT ASTRO ATOMS
 import FooterContainerOne from "@/atoms/footer/footer-container/one/index.astro"
 import FooterContainerTwo from "@/atoms/footer/footer-container/two/index.astro"
+// INSTEAD OF THIS, CREATE A COMPONENT FOR SOCIAL ICON WHICH INCLUDES IMAGE LINK ETC
 import IconSize from "@/atoms/footer/icon-size/index.astro"
+// NAME IT PictureInternalContain
 import InternalContainPicture from "@/atoms/picture/internal/contain/index.astro"
+// NAME IT AS LINK
 import Links from  "@/atoms/links/index.astro"
+// NAME IT Paragraph, also remove black because black is the default color
 import ParaBlack from "@/atoms/footer/footer-paragraph/black/index.astro"
+// NAME IT ParagraphGrey
 import ParaGrey from "@/atoms/footer/footer-paragraph/grey/index.astro"
 
 // IMPORT COLLECTIONS
 import { getCollection } from "astro:content"
 
-
-let column_1_data = await getCollection("footer-column-1");
+// column_1_data makes very little sense, name it footer_column_one
+let column_1_data = await getCollection("footer-column-1")
 column_1_data = column_1_data.sort( ( a, b ) => a.data.order - b.data.order )
 
 ---
-
+<!-- REMOVE THE EXTRA SPACE BEFORE bg-footer-bg -->
 <footer class=" bg-footer-bg border-t-2 border-black">
         <div class="flex justify-center w-full">
+            <!-- DELETE ALL THESE CONTAINERS, USE grid grid-cols-4 in the parent component -->
             <FooterContainerOne>
                 <ul class="space-y-1" >
-                    { 
+                    {
 
                         column_1_data.map( ( item, index ) => {
 
                             return (
+                                    // REMOVE THE EXTRA SPACE
                                    <li class=" font-semibold hover:text-cyan-500 text-black text-xl" >
                                         <Links href = { item.data.href } area_label = { item.data.title }>{ item.data.title }</Links>
                                    </li>
+
                             )
 
                         })
@@ -38,6 +46,7 @@ column_1_data = column_1_data.sort( ( a, b ) => a.data.order - b.data.order )
                 </ul>
             </FooterContainerOne>
             <FooterContainerTwo>
+                <!-- REMOVE THE EXTRA SPACE -->
                 <div class="flex flex-col gap-4" >
                     <ParaBlack>Location</ParaBlack>
                     <ParaGrey>San Jose, CA</ParaGrey>
@@ -51,7 +60,7 @@ column_1_data = column_1_data.sort( ( a, b ) => a.data.order - b.data.order )
                             1 (833) LIGHT 4D
                         </Links>
                     </ParaGrey>
-                </div>        
+                </div>
             </FooterContainerTwo>
             <FooterContainerOne>
                 <div class="flex flex-col" >
@@ -65,7 +74,7 @@ column_1_data = column_1_data.sort( ( a, b ) => a.data.order - b.data.order )
                             </ParaGrey>
                         </div>
                     </div>
-                    
+
                     <div class="flex flex-col w-24 gap-4 md:mt-16 md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
                         <IconSize>
                             <Links href = "https://x.com/lightfieldlab?lang=en" area_label="X">
@@ -88,3 +97,20 @@ column_1_data = column_1_data.sort( ( a, b ) => a.data.order - b.data.order )
         </div>
 </footer>
 
+<!-- Create this in md
+
+---
+title: San Jose, CA
+order: 1
+column: Location
+is_active: true
+---
+
+This way you can add all the footer content according to the column and don't have to create different collections for diffrent footer column.
+
+Then you can filter these out accordingly.
+
+let location_items = data.filter( ( value ) => value.data.column === "Location" && value.data.is_active )
+location_items = location_items.sort( ( a, b ) => a.data.order - b.data.order )
+
+Nothing should be hardcoded, everything should come from md, even the social icons. -->
