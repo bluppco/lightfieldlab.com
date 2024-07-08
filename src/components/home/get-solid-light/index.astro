@@ -2,24 +2,35 @@
 
 // IMPORT ASTRO ATOMS
 import HeadingOne from "@/atoms/headings/one/index.astro"
+// THIS SHOULD BE NAMED ButtonPrimary
 import PrimaryButton from "@/atoms/buttons/primary/index.astro"
+// THIS SHOULD BE NAMED ParapraghSmall
 import TextSmall from "@/atoms/get-solid-light/paragraph/small/index.astro"
 
 ---
 <section class="flex justify-center items-center my-4">
+    <!-- REMOVE THE EXTRA SPACE BEFORE FLEX -->
+    <!-- REMOVE THE EXTRA BEFORE > -->
     <div class=" flex flex-col gap-10" >
+        <!-- REMOVE THE EXTRA BEFORE > -->
         <div class="relative" >
+            <!-- THIS CAN BE FORMATTED IN ONE LINE ONLY -->
             <HeadingOne>
                 Get SolidLight
             </HeadingOne>
             <!-- here the fontweight and styling of this paragraph element is not according to the website -->
+            <!-- REMOVE THE EXTRA BEFORE > -->
             <div class="absolute -right-6 top-0" >
+                <!-- THIS CAN BE FORMATTED IN ONE LINE ONLY -->
                 <TextSmall>
                     TM
                 </TextSmall>
             </div>
         </div>
+         <!-- REMOVE THE EXTRA BEFORE > -->
         <div class=" w-90 flex justify-center" >
+            <!-- THIS CAN BE FORMATTED IN ONE LINE ONLY -->
+            <!-- ADD THE LINK TO THE BUTTON EVEN IF IT GOES 404 -->
             <PrimaryButton>
                 Apply Now
             </PrimaryButton>
