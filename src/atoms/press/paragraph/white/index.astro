@@ -1,0 +1,20 @@
+---
+
+// IMPORT ASTRO ATOMS
+import Links from "@/atoms/links/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    area_label,
+    href
+
+} = Astro.props
+
+---
+
+<Links href={ href } aria-label = { area_label }>
+    <h4 class=" hover:text-cyan-500 text-white text-2xl">
+       <slot />
+    </h4>
+</Links>

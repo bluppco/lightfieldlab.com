@@ -1,38 +1,39 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import HeadingOneLargeWhite from "@/atoms/headings/one/large/white/index.astro"
-import ParagraphWhite from "@/atoms/paragraphs/white/three-xl/index.astro"
-
+import HeadingOneNineXlWhite from "@/atoms/headings/one/nine-xl/white/index.astro"
+import ParagraphThreeXlWhite from "@/atoms/paragraphs/three-xl/white/index.astro"
 
 // GET ASTRO PROPS
 const {
 
+    sub_title,
     title,
-    subtitle
 
 } = Astro.props
 
 ---
-<section class="h-screen w-full">
-    <div class="relative">
-        <div class="h-screen w-full">
-            <img  
-                alt="" 
-                class="h-full w-full object-cover"
+<section>
+    <div class="relative overflow-hidden">
+        <div class="">
+            <img
+                alt=""
+                class=""
                 src="/images/hero-section.jpg"
-            >
+            />
         </div>
-        <div class="absolute inset-0 space-y-6 top-28 left-10">
-            <HeadingOneLargeWhite>{ title }</HeadingOneLargeWhite>
+        <div class="absolute space-y-6 top-28 left-10">
+            <HeadingOneNineXlWhite>{ title }</HeadingOneNineXlWhite>
             <div class="pr-80 md:pr-48">
-                <ParagraphWhite>{ subtitle }</ParagraphWhite>
+                <ParagraphThreeXlWhite>{ sub_title }</ParagraphThreeXlWhite>
             </div>
-            <img 
-                alt="TimeBestInventions" 
-                class="h-44 w-44 pb-10 md:h-80 md:w-80 top-0 left-0 -ml-12 md:-ml-20 md:pb-40"
-                src="/images/Inventions-hero-section.png" 
-            >
+            <div class="size-44 md:size-80 pb-10 top-0 left-0 -ml-12 md:-ml-20 md:pb-20">
+                <img
+                    alt="TimeBestInventions"
+                    class="w-full h-full object-cover"
+                    src="/images/Inventions-hero-section.png"
+                />
+            </div>
         </div>
     </div>
 </section>

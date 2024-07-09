@@ -1,0 +1,24 @@
+---
+
+// IMPORT ASTRO ATOMS
+import ParagraphLgFontLight from "@/atoms/paragraphs/lg/white/font-light/index.astro"
+import ParagraphFourXlWhite from "@/atoms/paragraphs/four-xl/white/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    number,
+    title,
+
+} = Astro.props
+
+---
+
+<div class="flex gap-12">
+    <div class="cursor-default min-w-8">
+        <ParagraphFourXlWhite>{ number }</ParagraphFourXlWhite>
+    </div>
+    <div class="border-b border-white pb-4 w-full">
+        <ParagraphLgFontLight>{ title }</ParagraphLgFontLight>
+    </div>
+</div>
