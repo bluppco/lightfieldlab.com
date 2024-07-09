@@ -48,7 +48,9 @@ const titles = [
 <section class="bg-black py-12">
     <Container>
         <div class="flex flex-col gap-10 my-10">
-            <HeadingOneWhite>{ data.title }</HeadingOneWhite>
+            <div class="tech-title-animated">
+                <HeadingOneWhite>{ data.title }</HeadingOneWhite>
+            </div>
             <BlueGradientUnderline />
             <div class="w-full md:w-[55%]">
                 <div class="flex flex-col gap-8">
@@ -149,4 +151,17 @@ const titles = [
 
         }
     })
+
+    // SCROLL REVEAL FOR ANIMATION
+    import ScrollReveal from 'scrollreveal';
+    document.addEventListener('DOMContentLoaded', () => {
+        ScrollReveal().reveal('.tech-title-animated', {
+            origin: 'left',
+            distance: '100px',
+            duration: 500,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: true,
+        });
+    });
 </script>
