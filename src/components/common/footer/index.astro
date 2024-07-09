@@ -15,7 +15,6 @@ const Phone = footer_data.filter(item => item.data.column === 'Phone');
 const Socials = footer_data.filter(item => item.data.column === 'Socials');
 
 /* console.log(Socials); */
-
 ---
 
 <footer class="bg-footer-bg border-t-2 border-black">
@@ -62,7 +61,7 @@ const Socials = footer_data.filter(item => item.data.column === 'Socials');
                             return (
                                    <Paragraph>{ item.data.column }</Paragraph>
                                    <ParagraphGrey>
-                                        <Link href = "tel:+18335444843" area_label = { item.data.title } >
+                                        <Link href = {`tel:${item.data.phone}`} area_label = { item.data.title } >
                                             { item.data.title }
                                         </Link>
                                     </ParagraphGrey>

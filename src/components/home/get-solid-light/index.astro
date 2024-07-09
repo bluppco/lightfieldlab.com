@@ -4,6 +4,7 @@
 import HeadingOne from "@/atoms/headings/one/index.astro"
 import ButtonPrimary from "@/atoms/buttons/primary/index.astro"
 import ParapraghSmall from "@/atoms/get-solid-light/paragraph/small/index.astro"
+import Link from "@/atoms/links/index.astro"
 
 ---
 
@@ -15,8 +16,12 @@ import ParapraghSmall from "@/atoms/get-solid-light/paragraph/small/index.astro"
                 <ParapraghSmall>TM</ParapraghSmall>
             </div>
         </div>
-        <div class=" w-90 flex justify-center">
-            <ButtonPrimary>Apply Now</ButtonPrimary>
+        <div class="w-90 flex justify-center">
+            <ButtonPrimary>
+                <Link href="/" aria_label="Apply Button"> 
+                    Apply Now
+                </Link>
+            </ButtonPrimary>
         </div>
     </div>
 </section>

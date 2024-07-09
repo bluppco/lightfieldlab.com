@@ -1,12 +1,12 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import ParagraphBlue from "@/atoms/press/paragraph/blue/index.astro"
 import HeadingOneWhite from "@/atoms/headings/one/white/index.astro"
 import ImageSize from "@/atoms/press/image-size/index.astro"
-import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
-import Links from "@/atoms/links/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBlue from "@/atoms/press/paragraph/blue/index.astro"
 import ParagraphWhite from "@/atoms/press/paragraph/white/index.astro"
+import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
 
 // IMPORT ASTRO COLLECTION
 import { getCollection } from "astro:content"
@@ -18,19 +18,19 @@ press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
 
 ---
 
-<section class=" bg-bluish_black p-16">
+<section class="bg-bluish_black p-16">
     <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-10">
         <HeadingOneWhite>Press</HeadingOneWhite>
         <div class="flex gap-2 md:gap-4">
             <ParagraphWhite>
-                <Links 
+                <Link 
                     href="/"
                     aria-label = "Light Field Lab"
                 >
                     Light Field Lab - Latest Press Release
-                </Links>
+                </Link>
             </ParagraphWhite>
-            <div class=" size-7">
+            <div class="size-7">
                  <PictureInternalContain 
                     source="/icons/button-arrow.svg" 
                     alternative-text="Arrow" 
@@ -44,7 +44,7 @@ press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
             alternative-text="Line"
          />
     </div>
-    <div class="grid grid-cols-2 grid-rows-3 gap-32 mt-32 md:grid-cols-3 md:grid-rows-2">
+    <div class="grid grid-cols-2 gap-32 mt-32 md:grid-cols-3 md:grid-rows-2">
 
         {
 
@@ -58,12 +58,12 @@ press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
                             alternative_text={ item.data.title }
                         />
                         <ParagraphWhite>
-                        <Links 
+                        <Link 
                             href="/"
                             aria-label = { item.data.description }
                         >
                             { item.data.description }
-                        </Links>
+                        </Link>
                         </ParagraphWhite>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
         }
 
     </div>
-    <div class="mt-20 pl-[45%]" >
+    <div class="mt-20 flex justify-center">
         <ParagraphBlue>ADDITIONAL PRESS ></ParagraphBlue>
     </div>
 </section>
