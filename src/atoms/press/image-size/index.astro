@@ -1,0 +1,15 @@
+---
+
+// IMPORT ASTRO ATOMS
+import InternalContainPicture from "@/atoms/picture/internal/contain/index.astro"
+
+const  {
+    source,
+    alternative_text
+} = Astro.props
+
+---
+
+<div class=" w-44 h-20">
+    <InternalContainPicture source = { source }  alternative_text = { alternative_text } />
+</div>
