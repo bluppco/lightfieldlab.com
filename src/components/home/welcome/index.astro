@@ -20,14 +20,30 @@ const {
 
 ---
 
-<Container>
-    <section class="py-20">
-        <HeadingThree>{ title }</HeadingThree>
-        <BlueGradientLine />
-        <div class="grid md:grid-cols-2 gap-20 space-y-8 md:space-y-0 pt-10">
-            <!-- transform delay-100 transition duration-300 -->
+<section class="py-20 mx-10 md:mx-20">
+    <HeadingThree>{ title }</HeadingThree>
+    <BlueGradientLine />
+    <div class="flex-wrap space-y-6 pt-5 md:grid md:grid-cols-5 gap-20 md:pt-10 md:space-y-0">
+        <div class="heading-animated md:col-span-3">
             <HeadingTwoSevenXl>{ heading }</HeadingTwoSevenXl>
+        </div>
+        <div class="md:col-span-2">
             <ParagraphTwoXl>{ description }</ParagraphTwoXl>
         </div>
-    </section>
-</Container>
+    </div>
+</section>
+
+<script>    
+    // SCROLL REVEAL FOR HEADING ANIMATION
+    import ScrollReveal from 'scrollreveal';
+    document.addEventListener('DOMContentLoaded', () => {
+        ScrollReveal().reveal('.heading-animated', {
+            origin: 'left',
+            distance: '100px',
+            duration: 500,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: false,
+        });
+    });
+</script>

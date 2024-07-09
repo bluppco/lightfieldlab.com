@@ -10,7 +10,7 @@
 
 - Two: text-sm lg:text-xl font-medium tracking-[3px] lg:tracking-[5px] font-montserrat
 - Two six xl: text-6xl font-merriweather
-- Two seven xl: text-6xl lg:text-7xl font-merriweather font-medium
+- Two seven xl: text-4xl md:text-6xl lg:text-7xl tracking-wider font-merriweather font-medium
 
 - Three: text-lg lg:text-2xl font-medium
 - Three five xl: text-3xl sm:text-5xl font-monserrat
@@ -29,7 +29,7 @@
 
 - Xl: text-lg lg:text-xl font-light
 
-- Two Xl: text-xl lg:text-2xl font-light
+- Two Xl: text-xl lg:text-2xl font-light leading-relaxed
 - Two xl blue: text-xl md:text-2xl text-cyan-500
 - Two xl Blue on hover: font-montserrat font-light text-xl lg:text-2xl text-white hover:text-cyan-400
 
