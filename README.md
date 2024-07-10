@@ -6,7 +6,7 @@
 - One White Center: text-5xl lg:text-8xl font-medium font-merriweather text-white text-center
 - One Eight xl: text-7xl lg:text-8xl font-merriweather font-medium
 - One Large white: text-8xl lg:text-9xl text-white font-medium font-merriweather
-- One Nine xl White: text-5xl md:text-8xl lg:text-9xl text-white font-medium font-merriweather
+- One Nine xl White: text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-white font-medium font-merriweather
 
 - Two: text-sm lg:text-xl font-medium tracking-[3px] lg:tracking-[5px] font-montserrat
 - Two six xl: text-6xl font-merriweather
