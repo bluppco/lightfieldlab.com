@@ -1,33 +1,25 @@
 ---
-
 // IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro"
+import Container from "@/layouts/container/index.astro";
 
 // IMPORT ASTRO ATOMS
-import BlueGradientLine from "@/atoms/blue-gradient-line/index.astro"
-import HeadingThree from "@/atoms/headings/three/index.astro"
-import HeadingTwoSevenXl from "@/atoms/headings/two/seven-xl/index.astro"
-import ParagraphTwoXl from "@/atoms/paragraphs/two-xl/index.astro"
+import BlueGradientLine from "@/atoms/blue-gradient-line/index.astro";
+import HeadingThree from "@/atoms/headings/three/index.astro";
+import HeadingTwoSevenXl from "@/atoms/headings/two/seven-xl/medium/index.astro";
+import ParagraphTwoXl from "@/atoms/paragraphs/two-xl/index.astro";
 
 // GET ASTRO PROPS
-const {
-
-    description,
-    heading,
-    title,
-
-} = Astro.props
-
+const { description, heading, title } = Astro.props;
 ---
 
 <Container>
-    <section class="py-20">
-        <HeadingThree>{ title }</HeadingThree>
-        <BlueGradientLine />
-        <div class="grid md:grid-cols-2 space-y-8 md:gap-60 pt-10">
-            <!-- transform delay-100 transition duration-300 -->
-            <HeadingTwoSevenXl>{ heading }</HeadingTwoSevenXl>
-            <ParagraphTwoXl>{ description }</ParagraphTwoXl>
-        </div>
-    </section>
+	<section class="py-20">
+		<HeadingThree>{title}</HeadingThree>
+		<BlueGradientLine />
+		<div class="grid md:grid-cols-2 space-y-8 md:gap-60 pt-10">
+			<!-- transform delay-100 transition duration-300 -->
+			<HeadingTwoSevenXl>{heading}</HeadingTwoSevenXl>
+			<ParagraphTwoXl>{description}</ParagraphTwoXl>
+		</div>
+	</section>
 </Container>
