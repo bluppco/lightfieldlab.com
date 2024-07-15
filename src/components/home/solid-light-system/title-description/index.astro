@@ -1,23 +1,16 @@
 ---
-
 // IMPORT ASTRO ATOMS
-import HeadingSixTwoXl from "@/atoms/headings/six/two-xl/index.astro"
+import HeadingSixXl from "@/atoms/headings/six/xl/index.astro";
 
 // GET ASTRO PROPS
-const {
-
-    description,
-    title,
-
-} = Astro.props
-
+const { description, title } = Astro.props;
 ---
 
-<div class="flex flex-col gap-4 p-6">
-    <div class="flex flex-col sm:flex-row justify-between gap-3 pt-4 border-t border-black">
-        <HeadingSixTwoXl>{ title }</HeadingSixTwoXl>
-        <div class="sm:w-1/2">
-            <p class="font-montserrat">{ description }</p>
-        </div>
-    </div>
+<div class="flex flex-col gap-4 p-4 sm:p-6">
+	<div class="flex flex-col sm:flex-row justify-center sm:justify-between gap-3 pt-4 border-t border-black sm:min-h-24">
+		<HeadingSixXl>{title}</HeadingSixXl>
+		<div class="sm:w-1/2">
+			<p class="font-montserrat text-base font-normal sm:text-lg sm:font-light">{description}</p>
+		</div>
+	</div>
 </div>

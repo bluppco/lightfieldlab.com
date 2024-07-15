@@ -1,98 +1,72 @@
 ---
-
 // IMPORT ASTRO COMPONENTS
-import TilteDescription from "@/components/home/solid-light-system/title-description/index.astro"
+import TilteDescription from "@/components/home/solid-light-system/title-description/index.astro";
 
 // IMPORT ASTRO ATOMS
-import HeadingFiveThreeXl from "@/atoms/headings/five/three-xl/index.astro"
-import HeadingTwoSixXl from "@/atoms/headings/two/six-xl/index.astro"
-import BlueGradientLine from "@/atoms/blue-gradient-line/index.astro"
-import ListItem from "@/atoms/lists/list-item/index.astro"
-import UnorderedList from "@/atoms/lists/unordered-list/index.astro"
+import HeadingFiveTwoXl from "@/atoms/headings/five/two-xl/index.astro";
+import HeadingFiveXl from "@/atoms/headings/five/xl/index.astro";
+import HeadingTwoSixXl from "@/atoms/headings/two/six-xl/index.astro";
+import BlueGradientLine from "@/atoms/blue-gradient-line/index.astro";
+import ListItem from "@/atoms/lists/list-item/index.astro";
+import UnorderedList from "@/atoms/lists/unordered-list/index.astro";
 
 const data = [
-
 	{
-
 		description: "28” (.7m) modular self-emissive – SolidLight Surface panels",
 		title: "Display Architecture",
-
 	},
 	{
-
 		description: "Broad-spectrum complex-amplitude dense converging wavefront",
 		title: "Type",
-
 	},
 	{
-
 		description: "10 Billion Pixels /m² (nominal)",
 		title: "Sample Density",
-
 	},
 	{
-
 		description: "Wide-gamut 10bit HDR @ 60Hz",
 		title: "Image Format",
-
 	},
 	{
-
 		description: "WaveTracer™ plugins and factory calibration LUTs",
 		title: "Software and Rendering",
-
-	}
-
-]
-
+	},
+];
 ---
 
-<!-- <section>SolidLight System</section> -->
-<section class="py-8 px-4 sm:py-16 sm:px-16">
-	<HeadingTwoSixXl>
-		<div class="inline-block animate-slideInLeft">SolidLight™</div>System
-	</HeadingTwoSixXl>
+<section class="py-8 px-6 sm:py-16 sm:px-16">
+	<div class="py-4">
+		<HeadingTwoSixXl>
+			<div class="inline-block animate-slideInLeft">SolidLight<span class="text-xl font-bold pr-6">™</span></div>System
+		</HeadingTwoSixXl>
+	</div>
 	<BlueGradientLine />
-	<div class="flex flex-col sm:flex-row justify-evenly gap-16 sm:gap-8">
-		<div class="flex flex-col gap-4 sm:w-1/2">
-			<HeadingFiveThreeXl>The SolidLight™ System is a turnkey solution to ensure transformational experiences.</HeadingFiveThreeXl>
-			<div class="py-4 sm:py-8">
-				<HeadingFiveThreeXl>The complete system includes:</HeadingFiveThreeXl>
+	<div class="flex flex-col sm:flex-row justify-evenly gap-16 sm:gap-8 sm:py-16 py-4">
+		<div class="flex flex-col gap-2 sm:gap-4 sm:w-1/2">
+			<HeadingFiveTwoXl>The SolidLight™ System is a turnkey solution to ensure transformational experiences.</HeadingFiveTwoXl>
+			<div class="py-2 sm:py-8">
+				<HeadingFiveTwoXl>The complete system includes:</HeadingFiveTwoXl>
 			</div>
 			<UnorderedList>
-				<ListItem>SolidLight Surface modular video wall panels</ListItem>
-				<ListItem>Computational hardware including servers, GPUs, synchronization, & networking</ListItem>
-				<ListItem>WaveTracer™: Powered by SolidLight, real-time and locally hosted rendering software and plugins to support your existing workflows</ListItem>
-				<ListItem>Hardware/Software support and maintenance with optional design, engineering and development services available</ListItem>
+				<ListItem> SolidLight Surface modular video wall panels </ListItem>
+				<ListItem> Computational hardware including servers, GPUs, synchronization, & networking </ListItem>
+				<ListItem> WaveTracer™: Powered by SolidLight, real-time and locally hosted rendering software and plugins to support your existing workflows </ListItem>
+				<ListItem> Hardware/Software support and maintenance with optional design, engineering and development services available </ListItem>
 			</UnorderedList>
 		</div>
 		<div class="flex flex-col sm:gap-4 sm:w-1/2 animate-slideInRight">
 			{
-
-				data.map( ( value ) => {
-
-					return(
-
-						<TilteDescription
-							description={ value.description }
-							title={ value.title }
-						/>
-
-					)
-
+				data.map((value) => {
+					return <TilteDescription description={value.description} title={value.title} />;
 				})
-
 			}
 		</div>
 	</div>
-	<div class="pt-12 sm:pt-24 pb-6 sm:pb-12">
-		<HeadingFiveThreeXl>LIGHT FIELD LAB'S VISION FOR THE SOLIDLIGHT™ HOLOGRAPHIC FUTURE</HeadingFiveThreeXl>
+	<div class="pt-12 pb-6 sm:pb-12">
+		<HeadingFiveXl>LIGHT FIELD LAB'S VISION FOR THE SOLIDLIGHT™ HOLOGRAPHIC FUTURE</HeadingFiveXl>
 		<BlueGradientLine />
 	</div>
-	<video
-		poster="https://i.vimeocdn.com/video/1254025712-8a43170f8f2e8fc0afd24a70298210e7f06f24b3a94d09c48?mw=1800&mh=1013&q=70"
-		controls
-	>
+	<video poster="https://i.vimeocdn.com/video/1254025712-8a43170f8f2e8fc0afd24a70298210e7f06f24b3a94d09c48?mw=1800&mh=1013&q=70" controls>
 		<source src="path_to_your_video.mp4" type="video/mp4" />
 		Your browser does not support the video tag.
 	</video>
