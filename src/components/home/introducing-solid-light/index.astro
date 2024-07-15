@@ -10,9 +10,11 @@ import Video from "@/atoms/video/index.astro"
 // HARDCODED DATA
 const data = {
 
+    button_link: "/",
     button_text: "See it Now",
     sub_title: "The Next Generation of Display Technology",
-    title: "Introducing SolidLight",
+    title_one: "Introducing",
+    title_two: "SolidLight",
 
 }
 
@@ -27,9 +29,9 @@ const data = {
             <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 lg:gap-10">
                 <div class="relative title-animated">
                     <div class="flex flex-col sm:flex-row sm:gap-4 gap-3">
-                        <HeadingOneWhiteCenter>Introducing</HeadingOneWhiteCenter>
+                        <HeadingOneWhiteCenter>{ data.title_one }</HeadingOneWhiteCenter>
                         <div class="relative">
-                            <HeadingOneWhiteCenter>Solidlight</HeadingOneWhiteCenter>
+                            <HeadingOneWhiteCenter>{ data.title_two }</HeadingOneWhiteCenter>
                             <span class="absolute top-2 right-2 sm:top-0 sm:-right-3 text-xs text-white transform -translate-y-1/2">TM</span>
                         </div>
                     </div>       
@@ -39,7 +41,7 @@ const data = {
                 </div>
             </div>
             <div class="flex items-center justify-center">
-                <Link href="/see-it-now" aria_label="">
+                <Link href={ data.button_link } aria_label="">
                     <TransparentButton>{ data.button_text }</TransparentButton>
                 </Link>
             </div>
