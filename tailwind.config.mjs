@@ -45,7 +45,7 @@ module.exports = {
 				color: {
 					primary: "#70cffe",
 					secondary: "#3b4ccf",
-					"footer-bg": "#E3E3E2",
+					footer_background: "#e2e2e2",
 					"footer-grey-text": "#66678B",
 				},
 			},
