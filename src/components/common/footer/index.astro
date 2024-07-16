@@ -18,7 +18,7 @@ const social = footer_data.filter( item => item.data.column === "Email" )
 
 ---
 
-<footer class="bg-[#e2e2e2] border-t-2 border-black grid grid-cols-4">
+<footer class="bg-[#e2e2e2] border-t-2 border-black grid grid-cols-2 md:grid-cols-4">
     <div class="border-black border-r-[1px] p-10">
         <ul class="space-y-0.5">
             {
@@ -36,13 +36,13 @@ const social = footer_data.filter( item => item.data.column === "Email" )
             }
         </ul>
     </div>
-    <div class="border-black border-r-[1px] p-10">
+    <div class="border-black border-r-[1px] p-10 hidden md:display">
         <div class="flex flex-col gap-4" >
             <ParagraphFooter>{ location[0].data.column }</ParagraphFooter>
             <ParagraphGrey>{ location[0].data.title }</ParagraphGrey>
         </div>
     </div>
-    <div class="border-black border-r-[1px] p-10">
+    <div class="border-black border-r-[1px] p-10 hidden md:display">
         <div class="flex flex-col gap-4">
             <ParagraphFooter>{ phone[0].data.column }</ParagraphFooter>
             <ParagraphGrey>
@@ -52,7 +52,7 @@ const social = footer_data.filter( item => item.data.column === "Email" )
             </ParagraphGrey>
         </div>
     </div>
-    <div class="border-black border-r-[1px] p-10">
+    <div class="border-black border-none md:border-r-[1px] p-10">
         <div class="flex flex-col justify-between">
             <div class="hidden md:block lg:block">
                 <div class="flex flex-col gap-4">
