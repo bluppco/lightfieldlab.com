@@ -1,120 +1,96 @@
 ---
 
-// IMPORT ASTRO ATOMS
+// IMPORT ATOMS
 import Link from  "@/atoms/links/index.astro"
-import Paragraph from "@/atoms/footer/footer-paragraph/index.astro"
+import LogoIcon from "@/atoms/picture/icons/index.astro"
+import ParagraphFooter from "@/atoms/footer/footer-paragraph/index.astro"
 import ParagraphGrey from "@/atoms/footer/footer-paragraph/grey/index.astro"
-import LogoSocial from "@/atoms/footer/social-icon/index.astro"
 
 // IMPORT COLLECTIONS
 import { getCollection } from "astro:content"
 let footer_data = await getCollection("footer-columns")
-const Links = footer_data.filter(item => item.data.column === 'Links');
-const Location = footer_data.filter(item => item.data.column === 'Location');
-const Phone = footer_data.filter(item => item.data.column === 'Phone');
-const Socials = footer_data.filter(item => item.data.column === 'Socials');
 
-/* console.log(Socials); */
+// FILTER DATA
+const links = footer_data.filter( item => item.data.column === "Links" )
+const location = footer_data.filter( item => item.data.column === "Location" )
+const phone = footer_data.filter( item => item.data.column === "Phone" )
+const social = footer_data.filter( item => item.data.column === "Email" )
+
 ---
 
-<footer class="bg-footer-bg border-t-2 border-black">
-        <div class="grid grid-cols-4">
-            <div class="border-black border-r-[1px] p-10">
-                <ul class="space-y-1">
-                    {
+<footer class="bg-[#e2e2e2] border-t-2 border-black grid grid-cols-4">
+    <div class="border-black border-r-[1px] p-10">
+        <ul class="space-y-0.5">
+            {
 
-                        Links[0].data.item.map( ( link, index ) => {
-                            
-                            return (
-                                   <li class="font-semibold hover:text-cyan-500 text-black text-xl">
-                                        <Link href = { link.href } area_label = { link.title }>{ link.title }</Link>
-                                   </li>
-                            )
+                links[0].data.item.map( ( link, index ) => {
 
-                        })
+                    return (
+                        <li class="font-semibold hover:text-cyan-500 text-black text-lg">
+                            <Link href={ link.href } area_label={ link.title }>{ link.title }</Link>
+                        </li>
+                    )
 
-                    }
-                </ul>
-            </div>
-            <div class="border-black border-r-[1px] p-10">
-                <div class="flex flex-col gap-4" >
-                    {
+                })
 
-                        Location.map( ( item, index ) => {
-                            
-                            return (
-                                   <Paragraph>{ item.data.column }</Paragraph>
-                                   <ParagraphGrey>{ item.data.title }</ParagraphGrey>
-                            )
-
-                        })
-
-                    }
+            }
+        </ul>
+    </div>
+    <div class="border-black border-r-[1px] p-10">
+        <div class="flex flex-col gap-4" >
+            <ParagraphFooter>{ location[0].data.column }</ParagraphFooter>
+            <ParagraphGrey>{ location[0].data.title }</ParagraphGrey>
+        </div>
+    </div>
+    <div class="border-black border-r-[1px] p-10">
+        <div class="flex flex-col gap-4">
+            <ParagraphFooter>{ phone[0].data.column }</ParagraphFooter>
+            <ParagraphGrey>
+                <Link href = {`tel:${phone[0].data.phone}`} area_label = { phone[0].data.title } >
+                    { phone[0].data.title }
+                </Link>
+            </ParagraphGrey>
+        </div>
+    </div>
+    <div class="border-black border-r-[1px] p-10">
+        <div class="flex flex-col justify-between">
+            <div class="hidden md:block lg:block">
+                <div class="flex flex-col gap-4">
+                    <ParagraphFooter>{ social[0].data.column }</ParagraphFooter>
+                    <ParagraphGrey>
+                        <Link href = {`mailto:${ social[0].data.title }`} area_label = { social[0].data.title } >
+                            { social[0].data.title }
+                        </Link>
+                    </ParagraphGrey>
                 </div>
             </div>
-            <div class="border-black border-r-[1px] p-10">
-                <div class="flex flex-col gap-4" >
+            <div>
+                <div class="flex flex-col w-24 gap-4 md:mt-16 md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
+
                     {
 
-                        Phone.map( ( item, index ) => {
-                            
+                        social[0].data.item.map( ( icon, index ) => {
+
                             return (
-                                   <Paragraph>{ item.data.column }</Paragraph>
-                                   <ParagraphGrey>
-                                        <Link href = {`tel:${item.data.phone}`} area_label = { item.data.title } >
-                                            { item.data.title }
-                                        </Link>
-                                    </ParagraphGrey>
+
+                                <Link href={ icon.href }>
+                                    <div class="size-7">
+                                        <LogoIcon
+                                            href = { icon.href }
+                                            area_label={ icon.title }
+                                            source = { icon.source }
+                                            alternative_text = { icon.title }
+                                        />
+                                    </div>
+                                </Link>
+
                             )
 
                         })
 
                     }
-                </div>
-            </div>
-            <div class="border-black border-r-[1px] p-10">
-                <div class="flex flex-col" >
-                    <div class=" hidden md:block lg:block">
-                        <div class="flex flex-col gap-4">
-                            {
-
-                                Socials.map( ( item, index ) => {
-            
-                                    return (
-                                        <Paragraph>{ item.data.column }</Paragraph>
-                                        <ParagraphGrey>
-                                                <Link href = {`mailto:${ item.data.title }`} area_label = { item.data.title } >
-                                                    { item.data.title }
-                                                </Link>
-                                            </ParagraphGrey>
-                                    )
-
-                               })
-
-                           }
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col w-24 gap-4 md:mt-16 md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
-                        
-                        {
-
-                            Socials[0].data.item.map( ( icon, index ) => {
-                            
-                                return (
-                                   <LogoSocial 
-                                        href = { icon.href } 
-                                        area_label={ icon.title }
-                                        source = { icon.source } 
-                                        alternative_text = { icon.title } 
-                                    />
-                                )
-
-                            })
-
-                        }
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
 </footer>
