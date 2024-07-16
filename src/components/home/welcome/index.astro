@@ -1,41 +1,47 @@
 ---
+
 // IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro";
+import Container from "@/layouts/container/index.astro"
 
 // IMPORT ASTRO ATOMS
-import BlueGradientLine from "@/atoms/blue-gradient-line/index.astro";
-import HeadingThree from "@/atoms/headings/three/index.astro";
-import HeadingTwoSevenXl from "@/atoms/headings/two/seven-xl/medium/index.astro";
-import ParagraphTwoXl from "@/atoms/paragraphs/two-xl/index.astro";
+import BlueGradientLine from "@/atoms/blue-gradient-line/index.astro"
+import HeadingThree from "@/atoms/headings/three/index.astro"
+import HeadingTwoSevenXl from "@/atoms/headings/two/seven-xl/medium/index.astro"
+import ParagraphTwoXl from "@/atoms/paragraphs/two-xl/index.astro"
 
 // GET ASTRO PROPS
-const { description, heading, title } = Astro.props;
+const { 
+    description, 
+    heading, 
+    title 
+} = Astro.props
+
 ---
 
 <section class="py-20 mx-10 md:mx-20">
-    <HeadingThree>{ title }</HeadingThree>
-    <BlueGradientLine />
-    <div class="flex flex-wrap gap-y-8 pt-5 md:grid md:grid-cols-5 md:gap-y-0 md:gap-x-20 md:pt-10">
-        <div class="heading-animated md:col-span-3">
-            <HeadingTwoSevenXl>{ heading }</HeadingTwoSevenXl>
-        </div>
-        <div class="md:col-span-2">
-            <ParagraphTwoXl>{ description }</ParagraphTwoXl>
-        </div>
-    </div>
+	<HeadingThree>{ title }</HeadingThree>
+	<BlueGradientLine />
+	<div class="flex flex-wrap gap-y-8 pt-5 md:grid md:grid-cols-5 md:gap-y-0 md:gap-x-20 md:pt-10">
+		<div class="heading-animated md:col-span-3">
+			<HeadingTwoSevenXl>{ heading }</HeadingTwoSevenXl>
+		</div>
+		<div class="md:col-span-2">
+			<ParagraphTwoXl>{ description }</ParagraphTwoXl>
+		</div>
+	</div>
 </section>
 
-<script>    
-    // SCROLL REVEAL FOR HEADING ANIMATION
-    import ScrollReveal from 'scrollreveal';
-    document.addEventListener('DOMContentLoaded', () => {
-        ScrollReveal().reveal('.heading-animated', {
-            origin: 'left',
-            distance: '100px',
-            duration: 500,
-            delay: 200,
-            easing: 'ease-in-out',
-            reset: false,
-        });
-    });
+<script>
+	// SCROLL REVEAL FOR HEADING ANIMATION
+	import ScrollReveal from "scrollreveal"
+	document.addEventListener("DOMContentLoaded", () => {
+		ScrollReveal().reveal(".heading-animated", {
+			origin: "left",
+			distance: "100px",
+			duration: 500,
+			delay: 200,
+			easing: "ease-in-out",
+			reset: false,
+		})
+	})
 </script>

@@ -1,7 +1,18 @@
+---
+
+// IMPORT ATOMS
+import IconButton from "@/atoms/buttons/icon/index.astro"
+
+---
+
 <div class="bg-black text-white relative flex flex-col items-center justify-center min-h-screen p-4">
-	<button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-transparent border-none text-white text-4xl cursor-pointer material-symbols-outlined">arrow_back_ios</button>
-	<button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-transparent border-none text-white text-4xl cursor-pointer material-symbols-outlined">arrow_forward_ios</button>
-	<div id="carousel" class="flex overflow-x-hidden scroll-snap-x-mandatory scroll-smooth w-full max-w-4xl">
+	<div id="prevBtn" class="absolute left-4 top-1/2">
+		<IconButton>arrow_back_ios</IconButton>
+	</div>
+	<div id="nextBtn" class="absolute right-4 top-1/2">
+		<IconButton>arrow_forward_ios</IconButton>
+	</div>
+	<div id="carousel"class="flex overflow-x-hidden scroll-snap-x-mandatory scroll-smooth w-full">
 		<!-- Carousel items will be inserted here by JavaScript -->
 	</div>
 	<div id="dots" class="absolute bottom-8 flex gap-2">
@@ -39,72 +50,72 @@
 			quote: "Light Field Lab's technologies not only enable the creation of real holographic objects, but also new innovations for automotive lighting that helps us harness light to transform automotive interfaces and illumination systems.",
 			name: "Dr. Michael Kleinkes, Member of the Executive Board and Head of Lighting Development at HELLA",
 		},
-	];
+	]
 
-	let currentIndex = 0;
-	const carousel = document.getElementById("carousel");
-	const dotsContainer = document.getElementById("dots");
+	let currentIndex = 0
+	const carousel = document.getElementById("carousel")
+	const dotsContainer = document.getElementById("dots")
 
 	function createCarouselItems() {
 		testimonials.forEach((testimonial, index) => {
-			const item = document.createElement("div");
-			item.className = "flex-shrink-0 w-full scroll-snap-align-center p-4";
+			const item = document.createElement("div")
+			item.className = "flex-shrink-0 w-full scroll-snap-align-center p-4"
 			item.innerHTML = ` 	
 					<div class="flex flex-col items-center justify-center">
 						<img src="/testimonials/inverted-comma.svg" alt="Inverted Comma" class="w-16 h-8 mx-auto mb-8" />
-                    	<p class="text-2xl leading-tight mb-8 text-center text-color-primary font-montserrat w-5/6">${testimonial.quote}</p>
+                    	<p class="text-2xl leading-tight mb-8 text-center text-color-primary font-montserrat w-1/2">${testimonial.quote}</p>
                     	<p class="text-lg text-center font-montserrat">${testimonial.name}</p>
 					</div>
-                `;
-			carousel.appendChild(item);
+                `
+			carousel.appendChild(item)
 
-			const dot = document.createElement("button");
-			dot.className = "w-3 h-3 rounded-full bg-gray-600 mx-1";
-			dot.setAttribute("aria-label", `Go to testimonial ${index + 1}`);
-			dot.addEventListener("click", () => scrollToIndex(index));
-			dotsContainer.appendChild(dot);
-		});
+			const dot = document.createElement("button")
+			dot.className = "w-3 h-3 rounded-full bg-gray-600 mx-1"
+			dot.setAttribute("aria-label", `Go to testimonial ${index + 1}`)
+			dot.addEventListener("click", () => scrollToIndex(index))
+			dotsContainer.appendChild(dot)
+		})
 	}
 
 	function scrollToIndex(index) {
-		const scrollWidth = carousel.scrollWidth;
-		const itemWidth = scrollWidth / testimonials.length;
+		const scrollWidth = carousel.scrollWidth
+		const itemWidth = scrollWidth / testimonials.length
 		carousel.scrollTo({
 			left: itemWidth * index,
 			behavior: "smooth",
-		});
-		updateActiveDot(index);
+		})
+		updateActiveDot(index)
 	}
 
 	function updateActiveDot(index) {
-		const dots = dotsContainer.getElementsByTagName("button");
+		const dots = dotsContainer.getElementsByTagName("button")
 		Array.from(dots).forEach((dot, i) => {
-			dot.classList.toggle("bg-white", i === index);
-			dot.classList.toggle("bg-gray-600", i !== index);
-		});
+			dot.classList.toggle("bg-white", i === index)
+			dot.classList.toggle("bg-gray-600", i !== index)
+		})
 	}
 
 	function handleScroll() {
-		const scrollPosition = carousel.scrollLeft;
-		const itemWidth = carousel.scrollWidth / testimonials.length;
-		const newIndex = Math.round(scrollPosition / itemWidth);
+		const scrollPosition = carousel.scrollLeft
+		const itemWidth = carousel.scrollWidth / testimonials.length
+		const newIndex = Math.round(scrollPosition / itemWidth)
 		if (newIndex !== currentIndex) {
-			currentIndex = newIndex;
-			updateActiveDot(currentIndex);
+			currentIndex = newIndex
+			updateActiveDot(currentIndex)
 		}
 	}
 
 	document.getElementById("prevBtn").addEventListener("click", () => {
-		currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-		scrollToIndex(currentIndex);
-	});
+		currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length
+		scrollToIndex(currentIndex)
+	})
 
 	document.getElementById("nextBtn").addEventListener("click", () => {
-		currentIndex = (currentIndex + 1) % testimonials.length;
-		scrollToIndex(currentIndex);
-	});
+		currentIndex = (currentIndex + 1) % testimonials.length
+		scrollToIndex(currentIndex)
+	})
 
-	createCarouselItems();
-	updateActiveDot(0);
-	carousel.addEventListener("scroll", handleScroll);
+	createCarouselItems()
+	updateActiveDot(0)
+	carousel.addEventListener("scroll", handleScroll)
 </script>
