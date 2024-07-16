@@ -14,8 +14,6 @@ import { getCollection } from "astro:content"
 let press_data = await getCollection("press-content")
 press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
 
-/* console.log(press_data); */
-
 ---
 
 <section class="bg-bluish_black p-16">
@@ -23,45 +21,37 @@ press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
         <HeadingOneWhite>Press</HeadingOneWhite>
         <div class="flex gap-2 md:gap-4">
             <ParagraphWhite>
-                <Link 
-                    href="/"
-                    aria-label = "Light Field Lab"
-                >
+                <Link href="/" aria-label = "Light Field Lab">
                     Light Field Lab - Latest Press Release
                 </Link>
             </ParagraphWhite>
             <div class="size-7">
-                 <PictureInternalContain 
-                    source="/icons/button-arrow.svg" 
-                    alternative-text="Arrow" 
+                <PictureInternalContain
+                    alternative-text="Arrow"
+                    source="/icons/button-arrow.svg"
                 />
             </div>
         </div>
     </div>
     <div class="h-4 w-full my-8">
-         <PictureInternalContain 
-            source ="/images/press-images/press-line.png" 
+        <PictureInternalContain
             alternative-text="Line"
-         />
+            source="/images/press-images/press-line.png"
+        />
     </div>
     <div class="grid grid-cols-2 gap-32 mt-32 md:grid-cols-3 md:grid-rows-2">
-
         {
 
             press_data.map( ( item, index ) => (
 
                 <div class="col-span-1 row-span-1">
-                    <div class=" flex flex-col gap-6 justify-center w-96">
-                        
-                        <ImageSize 
-                            source={ item.data.image }  
+                    <div class="flex flex-col gap-6 justify-center w-96">
+                        <ImageSize
+                            source={ item.data.image }
                             alternative_text={ item.data.title }
                         />
                         <ParagraphWhite>
-                        <Link 
-                            href="/"
-                            aria-label = { item.data.description }
-                        >
+                        <Link aria-label={ item.data.description } href="/">
                             { item.data.description }
                         </Link>
                         </ParagraphWhite>
@@ -71,7 +61,6 @@ press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
             ))
 
         }
-
     </div>
     <div class="mt-20 flex justify-center">
         <ParagraphBlue>ADDITIONAL PRESS ></ParagraphBlue>

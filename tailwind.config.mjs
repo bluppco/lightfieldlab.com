@@ -42,12 +42,17 @@ module.exports = {
 				slideInRight: "slideInRight 0.5s ease-out",
 			},
 			colors: {
+
 				color: {
+
+					footer_background: "#e2e2e2",
+					footer_gray_text: "#666",
+					primary_button: "#32c3ea",
 					primary: "#70cffe",
 					secondary: "#3b4ccf",
-					footer_background: "#e2e2e2",
-					"footer-grey-text": "#66678B",
+
 				},
+
 			},
 			fontFamily: {
 				merriweather: ["Merriweather", "serif"],
