@@ -36,13 +36,13 @@ const social = footer_data.filter( item => item.data.column === "Email" )
             }
         </ul>
     </div>
-    <div class="border-black border-r-[1px] p-10 hidden md:display">
+    <div class="border-black border-r-[1px] p-10 hidden md:flex">
         <div class="flex flex-col gap-4" >
             <ParagraphFooter>{ location[0].data.column }</ParagraphFooter>
             <ParagraphGrey>{ location[0].data.title }</ParagraphGrey>
         </div>
     </div>
-    <div class="border-black border-r-[1px] p-10 hidden md:display">
+    <div class="border-black border-r-[1px] p-10 hidden md:flex">
         <div class="flex flex-col gap-4">
             <ParagraphFooter>{ phone[0].data.column }</ParagraphFooter>
             <ParagraphGrey>
@@ -76,10 +76,8 @@ const social = footer_data.filter( item => item.data.column === "Email" )
                                 <Link href={ icon.href }>
                                     <div class="size-7">
                                         <LogoIcon
-                                            href = { icon.href }
-                                            area_label={ icon.title }
-                                            source = { icon.source }
-                                            alternative_text = { icon.title }
+                                            alternative_text={ icon.title }
+                                            source={ icon.source }
                                         />
                                     </div>
                                 </Link>
