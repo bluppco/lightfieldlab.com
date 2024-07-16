@@ -60,24 +60,25 @@ const titles = [
             </div>
             <div id="animation-container" class="md:px-16">
                 <div class="w-full h-full">
-                    <img
-                        alt="the-tech"
-                        class="w-full h-full"
+                    <PictureCover
+                        alternative_text=""
                         id="the-tech-image"
-                        src="/images/the-tech-images/the-tech.jpg"
+                        source="/images/the-tech-images/the-tech.jpg"
                     />
                 </div>
             </div>
             <div class="md:hidden flex flex-col gap-6">
                 {
-                    titles.map(( value ) => {
-                        return(
-                            <TechTitle
-                                number={ value.number }
-                                title={ value.title }
-                            />
-                        )
-                    })
+
+                    titles.map(( value ) => (
+
+                        <TechTitle
+                            number={ value.number }
+                            title={ value.title }
+                        />
+
+                    ))
+
                 }
             </div>
         </div>
