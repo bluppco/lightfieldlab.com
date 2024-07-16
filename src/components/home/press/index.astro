@@ -1,11 +1,12 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import BlueText from "@/atoms/press/paragraph/blue/index.astro"
-import HeadingOne from "@/atoms/headings/one/index.astro"
+import HeadingOneWhite from "@/atoms/headings/one/white/index.astro"
 import ImageSize from "@/atoms/press/image-size/index.astro"
-import InternalContainPicture from "@/atoms/picture/internal/contain/index.astro"
-import WhiteText from "@/atoms/press/paragraph/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import ParagraphBlue from "@/atoms/press/paragraph/blue/index.astro"
+import ParagraphWhite from "@/atoms/press/paragraph/white/index.astro"
+import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
 
 // IMPORT ASTRO COLLECTION
 import { getCollection } from "astro:content"
@@ -13,62 +14,55 @@ import { getCollection } from "astro:content"
 let press_data = await getCollection("press-content")
 press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
 
-/* console.log(press_data); */
-
 ---
 
-<!-- DEFINE THIS COLOR #141A23 in tailwind config file and then use it -->
-<section class="bg-[#141A23] p-16">
+<section class="bg-bluish_black p-16">
     <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-10">
-        <!-- TEXT PROPERTY NOT TO BE USED IN DIV, INSTEAD CREATE A NEW H1 ATOM WITH TEXT WHITE -->
-        <div class="text-white">
-            <HeadingOne>Press</HeadingOne>
-        </div>
+        <HeadingOneWhite>Press</HeadingOneWhite>
         <div class="flex gap-2 md:gap-4">
-            <!-- No hover class on heading four, --- hover:cyan-500 -->
-            <!-- THIS SHOULD BE CALLED ParagraphWhite -->
-            <!-- You are also using h4 in paragraphs which is wrong. -->
-            <!-- You are calling it text but it also have link, link can be used here instead of atom -->
-            <WhiteText>Light Field Lab - Latest Press Release</WhiteText>
-            <!-- REPLACE THIS WITH SIZE-7 -->
-            <div class="w-7 aspect-square">
-                <!-- FORMAT THE PICTURE TAG CORRECTLY IN DIFFERENT LINES -->
-                 <!-- IT WOULD BE CALLED PictureInternalContain -->
-                <InternalContainPicture source="/icons/button-arrow.svg" alternative-text="Arrow" />
+            <ParagraphWhite>
+                <Link href="/" aria-label = "Light Field Lab">
+                    Light Field Lab - Latest Press Release
+                </Link>
+            </ParagraphWhite>
+            <div class="size-7">
+                <PictureInternalContain
+                    alternative-text="Arrow"
+                    source="/icons/button-arrow.svg"
+                />
             </div>
         </div>
     </div>
     <div class="h-4 w-full my-8">
-        <!-- FORMAT THE PICTURE TAG CORRECTLY -->
-         <InternalContainPicture source ="/images/press-images/press-line.png" alternative-text="Line"/>
+        <PictureInternalContain
+            alternative-text="Line"
+            source="/images/press-images/press-line.png"
+        />
     </div>
-    <!-- CLASSES SHOULD BE ARRANGED CORRECTLY -->
-    <!-- grid-cols-2 md:grid-cols-3 instead of md:grid-cols-3 grid-cols-2 -->
-    <div class="grid md:grid-cols-3 grid-cols-2 md:grid-rows-2 grid-rows-3 gap-32 mt-32">
-
+    <div class="grid grid-cols-2 gap-32 mt-32 md:grid-cols-3 md:grid-rows-2">
         {
 
             press_data.map( ( item, index ) => (
 
                 <div class="col-span-1 row-span-1">
-                    <div class=" flex flex-col gap-6 justify-center w-96">
-                        {/* FORMAT THE PICTURE TAG CORRECTLY */}
-                        <ImageSize source={ item.data.image }  alternative_text={ item.data.title }/>
-                        {/* REFER TO LINE 29 COMMENT */}
-                        <WhiteText href="/" aria-label={ item.data.description }>
+                    <div class="flex flex-col gap-6 justify-center w-96">
+                        <ImageSize
+                            source={ item.data.image }
+                            alternative_text={ item.data.title }
+                        />
+                        <ParagraphWhite>
+                        <Link aria-label={ item.data.description } href="/">
                             { item.data.description }
-                        </WhiteText>
+                        </Link>
+                        </ParagraphWhite>
                     </div>
                 </div>
 
             ))
 
         }
-
     </div>
-    <!-- REMOVE THE EXTRA SPACE BEFORE mt-20 -->
-    <div class=" mt-20 pl-[45%]" >
-        <!-- NAME THIS ATOM ParagraphBlue -->
-        <BlueText>ADDITIONAL PRESS ></BlueText>
+    <div class="mt-20 flex justify-center">
+        <ParagraphBlue>ADDITIONAL PRESS ></ParagraphBlue>
     </div>
 </section>
