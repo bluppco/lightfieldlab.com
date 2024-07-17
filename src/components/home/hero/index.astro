@@ -3,6 +3,7 @@
 // IMPORT ASTRO ATOMS
 import HeadingOneNineXlWhite from "@/atoms/headings/one/nine-xl/white/index.astro"
 import ParagraphThreeXlWhite from "@/atoms/paragraphs/three-xl/white/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
 
 // GET ASTRO PROPS
 const {
@@ -13,25 +14,24 @@ const {
 } = Astro.props
 
 ---
-<section class="h-screen w-full">
-    <div class="relative">
-        <div class="h-screen w-full">
+<section class="overflow-hidden">
+    <div>
+        <div>
             <img
                 alt=""
-                class="h-full w-full object-cover"
+                class="min-h-screen sm:w-screen sm:min-h-0"
                 src="/images/hero-section.jpg"
             />
         </div>
-        <div class="absolute inset-0 space-y-6 top-28 left-10">
+        <div class="absolute top-60 text-center sm:text-left space-y-10 sm:space-y-5 xl:space-y-10 sm:top-32 md:top-24 lg:top-36 xl:top-48 left-10">
             <HeadingOneNineXlWhite>{ title }</HeadingOneNineXlWhite>
-            <div class="pr-80 md:pr-48">
+            <div class="sm:pr-40 md:pr-48 lg:pr-64 xl:pr-80 text-center sm:text-left">
                 <ParagraphThreeXlWhite>{ sub_title }</ParagraphThreeXlWhite>
             </div>
-            <div class="size-44 md:size-80 pb-10 top-0 left-0 -ml-12 md:-ml-20 md:pb-40">
-                <img
-                    alt="TimeBestInventions"
-                    class="w-full h-full object-cover"
-                    src="/images/Inventions-hero-section.png"
+            <div class="mx-auto size-40 sm:size-36 md:size-60 lg:size-72 xl:sixe-96 pb-10 left-0 sm:-ml-12 md:-ml-16 md:mr-2 lg:-ml-20 xl:-ml-36 md:pb-10 lg:pb-20">
+                <PictureInternal
+                    alternative_text="TimeBestInventions"
+                    source="/images/Inventions-hero-section.png"
                 />
             </div>
         </div>

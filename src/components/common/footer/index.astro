@@ -1,116 +1,94 @@
 ---
 
-// IMPORT ASTRO ATOMS
-import FooterContainerOne from "@/atoms/footer/footer-container/one/index.astro"
-import FooterContainerTwo from "@/atoms/footer/footer-container/two/index.astro"
-// INSTEAD OF THIS, CREATE A COMPONENT FOR SOCIAL ICON WHICH INCLUDES IMAGE LINK ETC
-import IconSize from "@/atoms/footer/icon-size/index.astro"
-// NAME IT PictureInternalContain
-import InternalContainPicture from "@/atoms/picture/internal/contain/index.astro"
-// NAME IT AS LINK
-import Links from  "@/atoms/links/index.astro"
-// NAME IT Paragraph, also remove black because black is the default color
-import ParaBlack from "@/atoms/footer/footer-paragraph/black/index.astro"
-// NAME IT ParagraphGrey
-import ParaGrey from "@/atoms/footer/footer-paragraph/grey/index.astro"
+// IMPORT ATOMS
+import Link from  "@/atoms/links/index.astro"
+import LogoIcon from "@/atoms/picture/icons/index.astro"
+import ParagraphFooter from "@/atoms/footer/footer-paragraph/index.astro"
+import ParagraphGrey from "@/atoms/footer/footer-paragraph/grey/index.astro"
 
 // IMPORT COLLECTIONS
 import { getCollection } from "astro:content"
+let footer_data = await getCollection("footer-columns")
 
-// column_1_data makes very little sense, name it footer_column_one
-let column_1_data = await getCollection("footer-column-1")
-column_1_data = column_1_data.sort( ( a, b ) => a.data.order - b.data.order )
+// FILTER DATA
+const links = footer_data.filter( item => item.data.column === "Links" )
+const location = footer_data.filter( item => item.data.column === "Location" )
+const phone = footer_data.filter( item => item.data.column === "Phone" )
+const social = footer_data.filter( item => item.data.column === "Email" )
 
 ---
-<!-- REMOVE THE EXTRA SPACE BEFORE bg-footer-bg -->
-<footer class=" bg-footer-bg border-t-2 border-black">
-        <div class="flex justify-center w-full">
-            <!-- DELETE ALL THESE CONTAINERS, USE grid grid-cols-4 in the parent component -->
-            <FooterContainerOne>
-                <ul class="space-y-1" >
+
+<footer class="bg-color-footer_background border-t-2 border-black grid grid-cols-2 md:grid-cols-4">
+    <div class="border-black border-r-[1px] p-10">
+        <ul class="space-y-0.5">
+            {
+
+                links[0].data.item.map( ( link, index ) => {
+
+                    return (
+                        <li class="font-semibold hover:text-cyan-500 text-black text-lg">
+                            <Link href={ link.href } area_label={ link.title }>{ link.title }</Link>
+                        </li>
+                    )
+
+                })
+
+            }
+        </ul>
+    </div>
+    <div class="border-black border-r-[1px] p-10 hidden md:flex">
+        <div class="flex flex-col gap-4" >
+            <ParagraphFooter>{ location[0].data.column }</ParagraphFooter>
+            <ParagraphGrey>{ location[0].data.title }</ParagraphGrey>
+        </div>
+    </div>
+    <div class="border-black border-r-[1px] p-10 hidden md:flex">
+        <div class="flex flex-col gap-4">
+            <ParagraphFooter>{ phone[0].data.column }</ParagraphFooter>
+            <ParagraphGrey>
+                <Link href = {`tel:${phone[0].data.phone}`} area_label = { phone[0].data.title } >
+                    { phone[0].data.title }
+                </Link>
+            </ParagraphGrey>
+        </div>
+    </div>
+    <div class="border-black border-none md:border-r-[1px] p-10">
+        <div class="flex flex-col justify-between">
+            <div class="hidden md:block lg:block">
+                <div class="flex flex-col gap-4">
+                    <ParagraphFooter>{ social[0].data.column }</ParagraphFooter>
+                    <ParagraphGrey>
+                        <Link href = {`mailto:${ social[0].data.title }`} area_label = { social[0].data.title } >
+                            { social[0].data.title }
+                        </Link>
+                    </ParagraphGrey>
+                </div>
+            </div>
+            <div>
+                <div class="flex flex-col w-24 gap-4 md:mt-16 md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
+
                     {
 
-                        column_1_data.map( ( item, index ) => {
+                        social[0].data.item.map( ( icon, index ) => {
 
                             return (
-                                    // REMOVE THE EXTRA SPACE
-                                   <li class=" font-semibold hover:text-cyan-500 text-black text-xl" >
-                                        <Links href = { item.data.href } area_label = { item.data.title }>{ item.data.title }</Links>
-                                   </li>
+
+                                <Link href={ icon.href }>
+                                    <div class="size-7">
+                                        <LogoIcon
+                                            alternative_text={ icon.title }
+                                            source={ icon.source }
+                                        />
+                                    </div>
+                                </Link>
 
                             )
 
                         })
 
                     }
-                </ul>
-            </FooterContainerOne>
-            <FooterContainerTwo>
-                <!-- REMOVE THE EXTRA SPACE -->
-                <div class="flex flex-col gap-4" >
-                    <ParaBlack>Location</ParaBlack>
-                    <ParaGrey>San Jose, CA</ParaGrey>
                 </div>
-            </FooterContainerTwo>
-            <FooterContainerTwo>
-                <div class="flex flex-col gap-4">
-                    <ParaBlack>Phone</ParaBlack>
-                    <ParaGrey>
-                        <Links href = "tel:+18335444843" area_label = "1 (833) LIGHT 4D" >
-                            1 (833) LIGHT 4D
-                        </Links>
-                    </ParaGrey>
-                </div>
-            </FooterContainerTwo>
-            <FooterContainerOne>
-                <div class="flex flex-col" >
-                    <div class=" hidden md:block lg:block">
-                        <div class="flex flex-col gap-4">
-                            <ParaBlack>Email</ParaBlack>
-                            <ParaGrey>
-                                <Links href = "mailto:info@lightfieldlab.com" area_label = "info@lightfieldlab.com" >
-                                    info@lightfieldlab.com
-                                </Links>
-                            </ParaGrey>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col w-24 gap-4 md:mt-16 md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
-                        <IconSize>
-                            <Links href = "https://x.com/lightfieldlab?lang=en" area_label="X">
-                                <InternalContainPicture source = "/icons/x-image.png" alternative_text = "X"></InternalContainPicture>
-                            </Links>
-                        </IconSize>
-                        <IconSize>
-                            <Links href = "https://www.facebook.com/lightfieldlab/" area_label="Facebook">
-                                <InternalContainPicture source = "/icons/facebook-image.png" alternative_text = "Facebook"></InternalContainPicture>
-                            </Links>
-                        </IconSize>
-                        <IconSize>
-                            <Links href = "https://www.linkedin.com/company/light-field-lab-inc./" area_label="LinkedIn">
-                                    <InternalContainPicture source = "/icons/linkedIn-image.png" alternative_text = "LinkedIn"></InternalContainPicture>
-                            </Links>
-                        </IconSize>
-                    </div>
-                </div>
-            </FooterContainerOne>
+            </div>
         </div>
+    </div>
 </footer>
-
-<!-- Create this in md
-
----
-title: San Jose, CA
-order: 1
-column: Location
-is_active: true
----
-
-This way you can add all the footer content according to the column and don't have to create different collections for diffrent footer column.
-
-Then you can filter these out accordingly.
-
-let location_items = data.filter( ( value ) => value.data.column === "Location" && value.data.is_active )
-location_items = location_items.sort( ( a, b ) => a.data.order - b.data.order )
-
-Nothing should be hardcoded, everything should come from md, even the social icons. -->

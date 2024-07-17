@@ -1,0 +1,52 @@
+---
+
+// IMPORT ASTRO ATOMS
+import LISTITEMCYAN from "@/atoms/lists/list-item/cyan/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+---
+<section class="bg-black h-20 fixed z-50 w-full items-center justify-center overflow-hidden md:hidden">
+    <div class="flex md:hidden">
+        <div class="absolute left-10 h-18 w-40 py-4">
+            <a href="/.home">
+                <div class="hidden sm:block">
+                    <PictureInternal
+                        alternative_text=""
+                        source="/logo/Lightfield-logo.png"
+                    />
+                </div>
+            </a>
+            <a href="/.home">
+                <div class="h-12 w-8 sm:hidden">
+                    <PictureInternal
+                        alternative_text=""
+                        source="/logo/logo.png"
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="absolute py-5 lg:py-0 right-10">
+            <img
+                alt=""
+                class="size-5"
+                onclick="dropdown()"
+                src="/icons/hamburger-icon.svg"
+            >
+            <ul class="py-5 pl-8 pr-20 mt-10 space-y-4 bg-white right-0 fixed z-50" id="submenu">
+                <li class="text-cyan-500"><a href="">Home</a></li>
+                <LISTITEMCYAN><a href="/the-tech">The Tech</a></LISTITEMCYAN>
+                <LISTITEMCYAN><a href="/press">Press</a></LISTITEMCYAN>
+                <LISTITEMCYAN><a href="/contact">Contact</a></LISTITEMCYAN>
+                <LISTITEMCYAN><a href="/jobs">Jobs</a></LISTITEMCYAN>
+                <LISTITEMCYAN><a href="/holowire">HoloWire</a></LISTITEMCYAN>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    function dropdown(){
+        document.querySelector('#submenu').classList.toggle('hidden');
+    }
+    dropdown()
+</script>

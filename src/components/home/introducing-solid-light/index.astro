@@ -2,17 +2,19 @@
 
 // IMPORT ASTRO ATOMS
 import HeadingOneWhiteCenter from "@/atoms/headings/one/white/center/index.astro"
+import Link from "@/atoms/links/index.astro"
 import ParagraphThreeXLWhiteCenter from "@/atoms/paragraphs/three-xl/white/center/index.astro"
 import TransparentButton from "@/atoms/buttons/transparent/index.astro"
 import Video from "@/atoms/video/index.astro"
-import Link from "@/atoms/links/index.astro"
 
 // HARDCODED DATA
 const data = {
 
+    button_link: "/",
     button_text: "See it Now",
     sub_title: "The Next Generation of Display Technology",
-    title: "Introducing SolidLight",
+    title_one: "Introducing",
+    title_two: "SolidLight",
 
 }
 
@@ -25,17 +27,45 @@ const data = {
     <div class="flex items-center justify-center h-full">
         <div class="flex flex-col gap-20 lg:gap-40">
             <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 lg:gap-10">
-                <div class="relative">
-                    <HeadingOneWhiteCenter>{ data.title }</HeadingOneWhiteCenter>
-                    <span class="absolute top-0 -right-3 text-xs text-white transform -translate-y-1/2">TM</span>
+                <div class="relative title-animated">
+                    <div class="flex flex-col sm:flex-row sm:gap-4 gap-3">
+                        <HeadingOneWhiteCenter>{ data.title_one }</HeadingOneWhiteCenter>
+                        <div class="relative">
+                            <HeadingOneWhiteCenter>{ data.title_two }</HeadingOneWhiteCenter>
+                            <span class="absolute top-2 right-2 sm:top-0 sm:-right-3 text-xs text-white transform -translate-y-1/2">TM</span>
+                        </div>
+                    </div>       
                 </div>
-                <ParagraphThreeXLWhiteCenter>{ data.sub_title }</ParagraphThreeXLWhiteCenter>
+                <div class="px-8 subtitle-animated">
+                    <ParagraphThreeXLWhiteCenter>{ data.sub_title }</ParagraphThreeXLWhiteCenter>
+                </div>
             </div>
             <div class="flex items-center justify-center">
-                <Link href="/see-it-now" aria_label="">
+                <Link href={ data.button_link } aria_label="">
                     <TransparentButton>{ data.button_text }</TransparentButton>
                 </Link>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    // SCROLL REVEAL FOR ANIMATION
+    import ScrollReveal from 'scrollreveal';
+    document.addEventListener('DOMContentLoaded', () => {
+        ScrollReveal().reveal('.title-animated', {
+            duration: 500,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: true,
+        });
+        ScrollReveal().reveal('.subtitle-animated', {
+            origin: 'bottom',
+            distance: '100px',
+            duration: 500,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: true,
+        });
+    });
+</script>
