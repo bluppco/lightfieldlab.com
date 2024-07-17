@@ -14,33 +14,23 @@ import PictureCover from "@/atoms/picture/internal/index.astro"
 
 // HARDCODED DATA
 const data = {
-
-    description_first: "SolidLight is unlike anything you’ve experienced before. This is beyond holograms.",
-    description_second: "SolidLight is the next generation of display combining unprecedented resolution and density to accurately project dimensional wavefronts to form objects that escape the screen and merge with reality.",
-    title: "The Tech",
-
+	description_first: "SolidLight is unlike anything you’ve experienced before. This is beyond holograms.",
+	description_second: "SolidLight is the next generation of display combining unprecedented resolution and density to accurately project dimensional wavefronts to form objects that escape the screen and merge with reality.",
+	title: "The Tech",
 }
 const titles = [
-
-    {
-
-        number: "1",
-        title: "High Performance Proprietary FPGA, Electronics, Wall & Display Controllers"
-
-    },
-    {
-
-        number: "2",
-        title: "Photonics Array & Nanoparticle Polymer Fused Surface Energy Relay"
-
-    },
-    {
-
-        number: "3",
-        title: "Complex Phaseguide Modulation Surface"
-
-    }
-
+	{
+		number: "1",
+		title: "High Performance Proprietary FPGA, Electronics, Wall & Display Controllers",
+	},
+	{
+		number: "2",
+		title: "Photonics Array & Nanoparticle Polymer Fused Surface Energy Relay",
+	},
+	{
+		number: "3",
+		title: "Complex Phaseguide Modulation Surface",
+	},
 ]
 
 ---
@@ -86,79 +76,74 @@ const titles = [
 </section>
 
 <script>
-    const images = [
-        '/images/the-tech-images/frame-1.jpg',
-        '/images/the-tech-images/frame-2.jpg',
-        '/images/the-tech-images/frame-3.jpg',
-        '/images/the-tech-images/frame-4.jpg',
-        '/images/the-tech-images/frame-5.jpg',
-        '/images/the-tech-images/frame-6.jpg',
-        '/images/the-tech-images/frame-7.jpg',
-        '/images/the-tech-images/frame-8.jpg',
-        '/images/the-tech-images/frame-9.jpg',
-        '/images/the-tech-images/frame-10.jpg',
-        '/images/the-tech-images/frame-12.jpg',
-        '/images/the-tech-images/frame-13.jpg',
-        '/images/the-tech-images/frame-14.jpg',
-        '/images/the-tech-images/frame-15.jpg',
-        '/images/the-tech-images/frame-16.jpg',
-        '/images/the-tech-images/frame-17.jpg',
-        '/images/the-tech-images/frame-18.jpg',
-        '/images/the-tech-images/frame-19.jpg',
-        '/images/the-tech-images/frame-20.jpg',
-        '/images/the-tech-images/frame-21.jpg',
-        '/images/the-tech-images/frame-22.jpg',
-        '/images/the-tech-images/frame-23.jpg',
-        '/images/the-tech-images/frame-24.jpg',
-        '/images/the-tech-images/frame-25.jpg',
-        '/images/the-tech-images/frame-26.jpg',
-        '/images/the-tech-images/frame-27.jpg',
-        '/images/the-tech-images/frame-28.jpg',
-        '/images/the-tech-images/frame-29.jpg',
-        '/images/the-tech-images/frame-31.jpg',
-        '/images/the-tech-images/frame-32.jpg',
-        '/images/the-tech-images/the-tech.jpg',
-    ];
+	const images = [
+		"/images/the-tech-images/frame-1.jpg",
+		"/images/the-tech-images/frame-2.jpg",
+		"/images/the-tech-images/frame-3.jpg",
+		"/images/the-tech-images/frame-4.jpg",
+		"/images/the-tech-images/frame-5.jpg",
+		"/images/the-tech-images/frame-6.jpg",
+		"/images/the-tech-images/frame-7.jpg",
+		"/images/the-tech-images/frame-8.jpg",
+		"/images/the-tech-images/frame-9.jpg",
+		"/images/the-tech-images/frame-10.jpg",
+		"/images/the-tech-images/frame-12.jpg",
+		"/images/the-tech-images/frame-13.jpg",
+		"/images/the-tech-images/frame-14.jpg",
+		"/images/the-tech-images/frame-15.jpg",
+		"/images/the-tech-images/frame-16.jpg",
+		"/images/the-tech-images/frame-17.jpg",
+		"/images/the-tech-images/frame-18.jpg",
+		"/images/the-tech-images/frame-19.jpg",
+		"/images/the-tech-images/frame-20.jpg",
+		"/images/the-tech-images/frame-21.jpg",
+		"/images/the-tech-images/frame-22.jpg",
+		"/images/the-tech-images/frame-23.jpg",
+		"/images/the-tech-images/frame-24.jpg",
+		"/images/the-tech-images/frame-25.jpg",
+		"/images/the-tech-images/frame-26.jpg",
+		"/images/the-tech-images/frame-27.jpg",
+		"/images/the-tech-images/frame-28.jpg",
+		"/images/the-tech-images/frame-29.jpg",
+		"/images/the-tech-images/frame-31.jpg",
+		"/images/the-tech-images/frame-32.jpg",
+		"/images/the-tech-images/the-tech.jpg",
+	]
 
-    window.addEventListener('scroll', () => {
+	window.addEventListener("scroll", () => {
+		const container = document.getElementById("animation-container")
+		const image = document.getElementById("the-tech-image") as HTMLImageElement
+		const containerTop = container.offsetTop
+		const containerHeight = container.offsetHeight
+		const scrollTop = window.scrollY
+		const windowHeight = window.innerHeight
+		const startScroll = containerTop - windowHeight
+		const endScroll = containerTop + containerHeight - 700
 
-        const container = document.getElementById( 'animation-container' )
-        const image = document.getElementById( 'the-tech-image' ) as HTMLImageElement
-        const containerTop = container.offsetTop
-        const containerHeight = container.offsetHeight
-        const scrollTop = window.scrollY
-        const windowHeight = window.innerHeight
-        const startScroll = containerTop - windowHeight
-        const endScroll = containerTop + containerHeight - 700
+		if (scrollTop >= startScroll && scrollTop <= endScroll) {
+			const scrollRange = endScroll - startScroll
+			const totalImages = images.length
+			let scrollPosition = scrollTop - startScroll
+			if (scrollPosition < 0) scrollPosition = 0
+			const imageIndex = Math.floor((scrollPosition / scrollRange) * (totalImages - 1))
+			// UPDATE THE SCR OF IMAGE
+			image.src = images[imageIndex]
+		} else if (scrollTop > endScroll) {
+			// UPDATE THE SCR OF IMAGE TO LAST IMAGE
+			image.src = images[images.length - 1]
+		}
+	})
 
-        if ( scrollTop >= startScroll && scrollTop <= endScroll ) {
-
-            const scrollRange = endScroll - startScroll
-            const totalImages = images.length
-            let scrollPosition = scrollTop - startScroll
-            if ( scrollPosition < 0 ) scrollPosition = 0
-            const imageIndex = Math.floor( ( scrollPosition / scrollRange ) * ( totalImages - 1 ) )
-            // UPDATE THE SCR OF IMAGE
-            image.src = images[ imageIndex ]
-
-        } else if ( scrollTop > endScroll ) {
-
-            // UPDATE THE SCR OF IMAGE TO LAST IMAGE
-            image.src = images[ images.length - 1 ]
-
-        }
-    })
-
-    // SCROLL REVEAL FOR ANIMATION
-    import ScrollReveal from 'scrollreveal';
-    document.addEventListener('DOMContentLoaded', () => {
-        ScrollReveal().reveal('.tech-title-animated', {
-            origin: 'left',
-            distance: '100px',
-            duration: 500,
-            delay: 200,
-            easing: 'ease-in-out',
-            reset: true,
-        });
-    });
+	// SCROLL REVEAL FOR ANIMATION
+	import ScrollReveal from "scrollreveal"
+	document.addEventListener("DOMContentLoaded", () => {
+		ScrollReveal().reveal(".tech-title-animated", {
+			origin: "left",
+			distance: "100px",
+			duration: 500,
+			delay: 200,
+			easing: "ease-in-out",
+			reset: true,
+		})
+	})
 </script>
