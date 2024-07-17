@@ -7,9 +7,10 @@ import Container from "@/layouts/container/index.astro"
 import TechTitle from "@/components/home/the-tech/titles/index.astro"
 
 // IMPORT ASTRO ATOMS
-import HeadingOneWhite from "@/atoms/headings/one/white/index.astro"
+import HeadingTwoWhite from "@/atoms/headings/two/seven-xl/white/index.astro"
 import BlueGradientUnderline from "@/atoms/blue-gradient-underline/index.astro"
 import ParagraphThreeXlWhite from "@/atoms/paragraphs/three-xl/white/index.astro"
+import PictureCover from "@/atoms/picture/internal/index.astro"
 
 // HARDCODED DATA
 const data = {
@@ -17,7 +18,6 @@ const data = {
 	description_second: "SolidLight is the next generation of display combining unprecedented resolution and density to accurately project dimensional wavefronts to form objects that escape the screen and merge with reality.",
 	title: "The Tech",
 }
-
 const titles = [
 	{
 		number: "1",
@@ -36,45 +36,43 @@ const titles = [
 ---
 
 <section class="bg-black py-12">
-	<Container>
-		<div class="flex flex-col gap-10 my-10">
-			<div class="tech-title-animated">
-				<HeadingOneWhite>{data.title}</HeadingOneWhite>
-			</div>
-			<BlueGradientUnderline />
-			<div class="w-full md:w-[55%]">
-				<div class="flex flex-col gap-8">
-					<ParagraphThreeXlWhite>{data.description_first}</ParagraphThreeXlWhite>
-					<ParagraphThreeXlWhite>{data.description_second}</ParagraphThreeXlWhite>
-				</div>
-			</div>
-			<div
-				id="animation-container"
-				class="md:px-16"
-			>
-				<div class="w-full h-full">
-					<img
-						alt="the-tech"
-						class="w-full h-full"
-						id="the-tech-image"
-						src="/images/the-tech-images/the-tech.jpg"
-					/>
-				</div>
-			</div>
-			<div class="md:hidden flex flex-col gap-6">
-				{
-					titles.map((value) => {
-						return (
-							<TechTitle
-								number={value.number}
-								title={value.title}
-							/>
-						)
-					})
-				}
-			</div>
-		</div>
-	</Container>
+    <Container>
+        <div class="flex flex-col gap-10 my-10">
+            <div class="tech-title-animated">
+                <HeadingTwoWhite>{ data.title }</HeadingTwoWhite>
+            </div>
+            <BlueGradientUnderline />
+            <div class="w-full md:w-[55%]">
+                <div class="flex flex-col gap-8">
+                    <ParagraphThreeXlWhite>{ data.description_first }</ParagraphThreeXlWhite>
+                    <ParagraphThreeXlWhite>{ data.description_second }</ParagraphThreeXlWhite>
+                </div>
+            </div>
+            <div id="animation-container" class="md:px-16">
+                <div class="w-full h-full">
+                    <PictureCover
+                        alternative_text=""
+                        id="the-tech-image"
+                        source="/images/the-tech-images/the-tech.jpg"
+                    />
+                </div>
+            </div>
+            <div class="md:hidden flex flex-col gap-6">
+                {
+
+                    titles.map(( value ) => (
+
+                        <TechTitle
+                            number={ value.number }
+                            title={ value.title }
+                        />
+
+                    ))
+
+                }
+            </div>
+        </div>
+    </Container>
 </section>
 
 <script>
