@@ -5,13 +5,12 @@ import HeadingOneNineXlWhite from "@/atoms/headings/one/nine-xl/white/index.astr
 import ParagraphThreeXlWhite from "@/atoms/paragraphs/three-xl/white/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
 
-// GET ASTRO PROPS
-const {
+const data = {
 
-    sub_title,
-    title,
+    sub_title: "We're creating a world where content escapes the screen and merges with reality.",
+    title: "Escape the Screen"
 
-} = Astro.props
+}
 
 ---
 <section class="overflow-hidden">
@@ -24,9 +23,9 @@ const {
             />
         </div>
         <div class="absolute top-60 text-center sm:text-left space-y-10 sm:space-y-5 xl:space-y-10 sm:top-32 md:top-24 lg:top-36 xl:top-48 left-10">
-            <HeadingOneNineXlWhite>{ title }</HeadingOneNineXlWhite>
+            <HeadingOneNineXlWhite>{ data.title }</HeadingOneNineXlWhite>
             <div class="sm:pr-40 md:pr-48 lg:pr-64 xl:pr-80 text-center sm:text-left">
-                <ParagraphThreeXlWhite>{ sub_title }</ParagraphThreeXlWhite>
+                <ParagraphThreeXlWhite>{ data.sub_title }</ParagraphThreeXlWhite>
             </div>
             <div class="mx-auto size-40 sm:size-36 md:size-60 lg:size-72 xl:sixe-96 pb-10 left-0 sm:-ml-12 md:-ml-16 md:mr-2 lg:-ml-20 xl:-ml-36 md:pb-10 lg:pb-20">
                 <PictureInternal

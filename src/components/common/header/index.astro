@@ -1,36 +1,24 @@
 ---
 
-// IMPORT ASTRO COMPONENTS
-import MobileHeader from "@/components/common/header/header-mobile/index.astro"
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
 
-// IMPORT ASTRO ATOMS
-import LISTITEMCYAN from "@/atoms/lists/list-item/cyan/index.astro"
-import PictureInternal from "@/atoms/picture/internal/index.astro"
+// IMPORT ASTRO COMPONENTS
+import HeaderMobile from "@/components/common/header/header-mobile/index.astro"
+import NavigationLinks from "@/components/common/header/navigation-links/index.astro"
+
+// IMPORTS COLLECTION FROM CONTENT
+import { getCollection } from "astro:content"
+
+// IMPORTS FOOTER COLUMN TWO COLLECTION
+let header_data = await getCollection('header')
+header_data = header_data.filter( ( item ) => item.data.live ).sort( ( a, b ) => a.data.order - b.data.order )
 
 ---
-<MobileHeader/>
 
-<section class="bg-black h-20 fixed z-50 w-full items-center justify-center overflow-hidden hidden md:block">
-    <div class="flex justify-between items-center mx-20">
-        <div class="h-16 w-44 pt-5 cursor-pointer">
-            <a href="/.home">
-                <div class="left-10">
-                    <PictureInternal
-                        alternative_text=""
-                        source="/logo/Lightfield-logo.png"
-                    />
-                </div>
-            </a>
-        </div>
-        <div>
-            <ul class="text-white flex space-x-6 text-base tracking-wider cursor-pointer">
-                <li class="text-cyan-500"><a href="">Home</a></li>
-                    <LISTITEMCYAN><a href="/the-tech">The Tech</a></LISTITEMCYAN>
-                    <LISTITEMCYAN><a href="/press">Press</a></LISTITEMCYAN>
-                    <LISTITEMCYAN><a href="/contact">Contact</a></LISTITEMCYAN>
-                    <LISTITEMCYAN><a href="/jobs">Jobs</a></LISTITEMCYAN>
-                    <LISTITEMCYAN><a href="/holowire">HoloWire</a></LISTITEMCYAN>
-            </ul>
-        </div>
-    </div>
-</section>
+<header class="hidden md:block bg-black h-20 w-full fixed z-50">
+    <Container>
+        <NavigationLinks header_data={ header_data } />
+    </Container>
+</header>
+<HeaderMobile />
