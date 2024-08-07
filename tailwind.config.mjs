@@ -55,11 +55,15 @@ module.exports = {
 
 			},
 			fontFamily: {
+
 				merriweather: ["Merriweather", "serif"],
 				montserrat: ["Montserrat", "sans-serif"],
+
 			},
 			backgroundColor: {
+
 				bluish_black: "#141A23",
+
 			},
 		},
 	},

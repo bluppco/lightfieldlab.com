@@ -1,0 +1,32 @@
+---
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import ListItemWhite from "@/atoms/list-items/base/white/index.astro"
+
+// GET ASTRO PROPS
+const { header_data } = Astro.props
+
+---
+
+<ul class="flex gap-6 items-center">
+    <li class="text-cyan-500">
+        <Link href={ header_data[0].data.link } aria_label={ "explore " + header_data[0].data.title }>{ header_data[0].data.title }</Link>
+    </li>
+    <!-- SLICING THE FIRST OBJECT FROM THE header_data COLLECTION ARRAY -->
+    {
+
+        header_data.slice(1).map( ( list_item ) => {
+
+            return(
+
+                <ListItemWhite>
+                    <Link href={ list_item.data.link } aria_label={ "explore " + list_item.data.title }>{ list_item.data.title }</Link>
+                </ListItemWhite>
+
+            )
+
+        })
+
+    }
+</ul>

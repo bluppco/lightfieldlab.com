@@ -1,0 +1,15 @@
+---
+
+// IMPORT ASTRO COMPONENTS
+import HeaderLogo from "@/components/common/header/navigation-links/logo/index.astro"
+import UnorderedList from "@/components/common/header/navigation-links/unordered-list/index.astro"
+
+// GET ASTRO PROPS
+const { header_data } = Astro.props
+
+---
+
+<nav class="flex justify-between items-center h-full">
+    <HeaderLogo />
+    <UnorderedList header_data={ header_data } />
+</nav>
