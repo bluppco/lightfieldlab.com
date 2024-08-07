@@ -1,5 +1,8 @@
 ---
 
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
 // IMPORT ASTRO COMPONENTS
 import HeaderLogo from "@/components/common/header/navigation-links/logo/index.astro"
 import UnorderedList from "@/components/common/header/navigation-links/unordered-list/index.astro"
@@ -8,8 +11,9 @@ import UnorderedList from "@/components/common/header/navigation-links/unordered
 const { header_data } = Astro.props
 
 ---
-
-<nav class="flex justify-between items-center h-full">
-    <HeaderLogo />
-    <UnorderedList header_data={ header_data } />
-</nav>
+<Container>
+    <nav class="flex justify-between items-center h-full">
+        <HeaderLogo />
+        <UnorderedList header_data={ header_data } />
+    </nav>
+</Container>

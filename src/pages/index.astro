@@ -1,5 +1,23 @@
 ---
 
+// RUNTIME
+const runtime = Astro.locals.runtime
+
+// FETCHING ENVIRONMENT VARIABLES
+const {
+
+	BEARER_TOKEN,
+	ENDPOINT,
+
+} = runtime.env
+
+// IMPORT API
+import { fetchHome } from "@/api/home/index.js"
+
+const data = await fetchHome( ENDPOINT, "d0ae7955b00d47c38e474fc65527504b", BEARER_TOKEN )
+
+const home_data = data.data.filter( ( item ) => item.properties.is_active )
+
 // IMPORTS LAYOUT COMPONENTS
 import Layout from "@/layouts/layout/index.astro"
 

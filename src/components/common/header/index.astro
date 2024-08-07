@@ -1,8 +1,5 @@
 ---
 
-// IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro"
-
 // IMPORT ASTRO COMPONENTS
 import HeaderMobile from "@/components/common/header/header-mobile/index.astro"
 import NavigationLinks from "@/components/common/header/navigation-links/index.astro"
@@ -17,8 +14,6 @@ header_data = header_data.filter( ( item ) => item.data.live ).sort( ( a, b ) =>
 ---
 
 <header class="hidden md:block bg-black h-20 w-full fixed z-50">
-    <Container>
-        <NavigationLinks header_data={ header_data } />
-    </Container>
+    <NavigationLinks header_data={ header_data } />
 </header>
 <HeaderMobile />
