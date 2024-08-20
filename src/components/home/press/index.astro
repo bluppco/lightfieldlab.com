@@ -1,74 +1,172 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import BlueText from "@/atoms/press/paragraph/blue/index.astro"
-import HeadingOne from "@/atoms/headings/one/index.astro"
-import ImageSize from "@/atoms/press/image-size/index.astro"
+import ParagraphLargeSemiboldCyan from "@/atoms/press/paragraph/lg/semibold/cyan/index.astro"
+import HeadingOne8xlMediumWhite from "@/atoms/headings/one/index.astro"
 import InternalContainPicture from "@/atoms/picture/internal/contain/index.astro"
-import WhiteText from "@/atoms/press/paragraph/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+import Paragraph2xlWhite from "@/atoms/press/paragraph/2xl/white/index.astro"
 
-// IMPORT ASTRO COLLECTION
-import { getCollection } from "astro:content"
+// PRESS ARRAY
+const press = [
 
-let press_data = await getCollection("press-content")
-press_data = press_data.sort( ( a, b ) => a.data.order - b.data.order )
+    {
+        href:"https://www.instagram.com/p/C1XmlGExDeP/",
+        source:"/images/press-images/bill-gates.png",
+        title:"Bill Gates visits Light Field Lab - This is Wild",
+    },
+    {
+        href:"https://www.cnet.com/tech/home-entertainment/we-said-hello-to-a-hologram-at-light-field-lab/",
+        source:"/images/press-images/cnet.svg",
+        title:"Debuts a holographic talking head that looks more realistic than ever",
+    },
+    {
+        href:"https://www.forbes.com/sites/charliefink/2023/02/08/light-field-lab-raises-50m-to-bring-solidlight-holograms-into-the-real-world/?sh=c27d10470701",
+        source:"/images/press-images/forbes.svg",
+        title:"Once or twice a year I see something that really makes me go, Wow",
+    },
+    {
+        href:"https://www.rollingstone.com/culture-council/articles/holograms-future-entertainment-advertising-1268769/",
+        source:"/images/press-images/rolling-stone.png",
+        title:"Light Field Lab unveils impressive SolidLight holographic display",
+    },
+    {
+        href:"https://time.com/collection/best-inventions-2022/6228926/light-field-lab-solidlight/",
+        source:"/images/press-images/time.png",
+        title:"Light Field Lab named one of top 200 inventions",
+    },
+    {
+        href:"https://venturebeat.com/games/light-field-lab-raises-50m-to-manufacture-its-solidlight-holographic-displays/",
+        source:"/images/press-images/venture-beat.svg",
+        title:"Light Field Lab unveils Defy™ experiences - Space and Time",
+    },
 
-/* console.log(press_data); */
+]
+
+// HARDCODED DATA
+const data = {
+
+    description:"ADDITIONAL PRESS >",
+    sub_title:"Light Field Lab - Latest Press Release",
+    title:"Press",
+
+}
 
 ---
-
-<!-- DEFINE THIS COLOR #141A23 in tailwind config file and then use it -->
-<section class="bg-[#141A23] p-16">
-    <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-10">
-        <!-- TEXT PROPERTY NOT TO BE USED IN DIV, INSTEAD CREATE A NEW H1 ATOM WITH TEXT WHITE -->
-        <div class="text-white">
-            <HeadingOne>Press</HeadingOne>
-        </div>
-        <div class="flex gap-2 md:gap-4">
-            <!-- No hover class on heading four, --- hover:cyan-500 -->
-            <!-- THIS SHOULD BE CALLED ParagraphWhite -->
-            <!-- You are also using h4 in paragraphs which is wrong. -->
-            <!-- You are calling it text but it also have link, link can be used here instead of atom -->
-            <WhiteText>Light Field Lab - Latest Press Release</WhiteText>
-            <!-- REPLACE THIS WITH SIZE-7 -->
-            <div class="w-7 aspect-square">
-                <!-- FORMAT THE PICTURE TAG CORRECTLY IN DIFFERENT LINES -->
-                 <!-- IT WOULD BE CALLED PictureInternalContain -->
-                <InternalContainPicture source="/icons/button-arrow.svg" alternative-text="Arrow" />
+<section class="bg-color-dark_blue w-full">
+    <div class="p-16">
+        <div class="flex flex-col md:flex-row gap-4 justify-between md:items-center mb-5">
+            <div class="heading-animated">
+                <HeadingOne8xlMediumWhite>{ data.title }</HeadingOne8xlMediumWhite>
+            </div>
+            <div class="flex gap-2 md:gap-4">
+                <Link href="https://www.lightfieldlab.com/press-release-feb-2023">
+                    <Paragraph2xlWhite>{ data.sub_title }</Paragraph2xlWhite>
+                </Link>
+                <div class="size-7">
+                    <InternalContainPicture source="/icons/button-arrow.svg" alternative-text="Arrow" />
+                </div>
             </div>
         </div>
-    </div>
-    <div class="h-4 w-full my-8">
-        <!-- FORMAT THE PICTURE TAG CORRECTLY -->
-         <InternalContainPicture source ="/images/press-images/press-line.png" alternative-text="Line"/>
-    </div>
-    <!-- CLASSES SHOULD BE ARRANGED CORRECTLY -->
-    <!-- grid-cols-2 md:grid-cols-3 instead of md:grid-cols-3 grid-cols-2 -->
-    <div class="grid md:grid-cols-3 grid-cols-2 md:grid-rows-2 grid-rows-3 gap-32 mt-32">
+        <div class="h-1 w-full mb-10">
+            <PictureInternal
+                alternative_text="Line"
+                source="/images/press-images/press-line.png"
+            />
+        </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 md:gap-10 xl:gap-20 2xl:gap-40">
+                {
 
-        {
+                    press.map( ( item , index ) =>{
+    
+                        if( index == 1 ){
+    
+                            return (
 
-            press_data.map( ( item, index ) => (
+                                    <div class="space-y-10">
+                                        <div class="w-10 aspect-[4/3]">
+                                            <PictureInternal 
+                                                alternative_text={ item.title }
+                                                source={ item.source }
+                                            />
+                                        </div>
+                                        <div>
+                                            <Link href={ item.href } aria-label = { item.href }>
+                                                <Paragraph2xlWhite>{ item.title }</Paragraph2xlWhite>
+                                            </Link>
+                                        </div>
+                                    </div>
+    
+                            )
+    
+                        } else if( index == 2 ){
 
-                <div class="col-span-1 row-span-1">
-                    <div class=" flex flex-col gap-6 justify-center w-96">
-                        {/* FORMAT THE PICTURE TAG CORRECTLY */}
-                        <ImageSize source={ item.data.image }  alternative_text={ item.data.title }/>
-                        {/* REFER TO LINE 29 COMMENT */}
-                        <WhiteText href="/" aria-label={ item.data.description }>
-                            { item.data.description }
-                        </WhiteText>
-                    </div>
-                </div>
+                            return ( 
 
-            ))
+                                    <div class="space-y-10">
+                                        <div class="w-20 aspect-[9/2.1]">
+                                            <PictureInternal 
+                                                alternative_text={ item.title }
+                                                source={ item.source }
+                                            />
+                                        </div>
+                                        <div>
+                                            <Link href={ item.href } aria-label = { item.href }>
+                                                <Paragraph2xlWhite>{ item.title }</Paragraph2xlWhite>
+                                            </Link>
+                                        </div>
+                                    </div>
 
-        }
+                            )
 
-    </div>
-    <!-- REMOVE THE EXTRA SPACE BEFORE mt-20 -->
-    <div class=" mt-20 pl-[45%]" >
-        <!-- NAME THIS ATOM ParagraphBlue -->
-        <BlueText>ADDITIONAL PRESS ></BlueText>
+                        }
+                        
+                        else {
+
+                            return (
+
+                                    <div class="space-y-10">
+                                        <div class="w-28 aspect-auto">
+                                            <PictureInternal 
+                                                alternative_text={ item.title }
+                                                source={ item.source }
+                                            />
+                                        </div>
+                                        <div>
+                                            <Link href={ item.href } aria-label = { item.href }>
+                                                <Paragraph2xlWhite>{ item.title }</Paragraph2xlWhite>
+                                            </Link>
+                                        </div>
+                                    </div>
+
+                            )
+
+                        }
+    
+                    } )
+    
+                }
+            </div>
+        <div class="mt-20 flex justify-center">
+            <Link aria_label={ data.description } href="/press-active">
+                <ParagraphLargeSemiboldCyan>{ data.description }</ParagraphLargeSemiboldCyan>
+            </Link>
+        </div>
     </div>
 </section>
+
+<script>    
+    // SCROLL REVEAL FOR HEADING ANIMATION
+    import ScrollReveal from 'scrollreveal';
+    document.addEventListener('DOMContentLoaded', () => {
+        ScrollReveal().reveal('.heading-animated', {
+            origin: 'left',
+            distance: '100px',
+            duration: 500,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: false,
+        });
+    });
+</script>

@@ -48,6 +48,7 @@ module.exports = {
           secondary: "#3b4ccf",
           "footer-bg": "#E3E3E2",
 				  "footer-grey-text": "#66678B",
+          "dark_blue":"#141A23",
         },
       },
       fontFamily: {
